@@ -1,0 +1,97 @@
+# Nova Shift
+
+## Unternehmen (Entity)
+- Name: Nova Shift
+- Website (Canonical): https://nova-shift.website/
+- Gründung: 2025
+- Sprachen: de (Deutsch), en (English)
+- Kontakt (E-Mail): hello@nova-shift.website
+- Kurzbeschreibung: Nova Shift ist eine Full-Service Creative Agency (DE/EN) für D2C- und E-Commerce-Brands. Leistungen: Performance Ads & Kampagnen, UGC & AI Content, Webdesign, Branding und AI-Produktion aus einer Hand.
+
+## Services (strukturierter Leistungskatalog)
+
+### 1) Nova Advertising
+- URL: https://nova-shift.website/advertising
+- Definition: Performance-Advertising-Service von Nova Shift: Kampagnenstrategie, Creative-Produktion und Distribution auf Meta, Google und TikTok.
+- Zielgruppe: D2C- und E-Commerce-Brands, die Creatives systematisch testen und skalieren wollen.
+- Deliverables (typisch):
+  - Kampagnen-Strategie & Messaging
+  - Ad Creatives (Video/Static) + Variationen
+  - Setup & Ausspielung (Meta/Google/TikTok)
+  - Testing-Plan, Iteration & Optimierung
+  - Reporting + Learnings
+
+### 2) Nova Cast
+- URL: https://nova-shift.website/cast
+- Definition: UGC- und AI-Content-Unit von Nova Shift. Ein Setup liefert mehrere Creator-Assets inklusive KI-gestützter Post-Production und Varianten.
+- Zielgruppe: Brands, die mehr performante Video-Assets für Meta, TikTok und Instagram benötigen.
+- Deliverables (typisch):
+  - Creator-Content (UGC) inkl. Briefing & Skript
+  - Produktion (On-Set oder Remote)
+  - Schnitt, Untertitel, Sound
+  - Hook-Varianten & Format-Adaptionen
+  - AI-gestützte Post-Production (Variationen/Batch-Exports)
+
+### 3) Nova Web
+- URL: https://nova-shift.website/web
+- Definition: Webdesign- und Development-Service von Nova Shift: Websites, Shops und Landing Pages mit klarer Struktur, SEO-Basics und Conversion-Fokus.
+- Zielgruppe: KMU und Brands, die schneller sichtbar sein und mehr qualifizierte Anfragen oder Käufe erzielen wollen.
+- Deliverables (typisch):
+  - Informationsarchitektur & Wireframes
+  - Designsystem (Typografie, Komponenten)
+  - Umsetzung (Webflow/Shopify/WordPress/Next.js je nach Setup)
+  - SEO-Basics (Struktur, Meta, Performance)
+  - Launch & Übergabe
+
+### 4) Nova Aura
+- URL: https://nova-shift.website/aura
+- Definition: Branding-Service von Nova Shift: Positionierung, Brand Voice, visuelles System (Logo, Typografie, Farben) und Guidelines.
+- Zielgruppe: Brands, die ein klares Profil, Wiedererkennbarkeit und ein konsistentes Brand-System brauchen.
+- Deliverables (typisch):
+  - Positionierung & Messaging-Framework
+  - Logo-System + Anwendungen
+  - Typografie- und Farb-System
+  - Brand Voice (Ton & Beispiele)
+  - Guidelines (PDF) + Templates
+
+### 5) Nova Production
+- URL: https://nova-shift.website/production
+- Definition: Kombiniert Produkt-Shootings mit KI-Workflows für schnellere Varianten, virtuelle Sets und skalierbaren Premium-Content.
+- Zielgruppe: Brands mit Bedarf an hochwertigen Visuals, die in mehreren Formaten und Kanälen schnell ausspielbar sein müssen.
+- Deliverables (typisch):
+  - Produktshooting / Set-Setup
+  - KI-generierte Visuals & Environments
+  - Video- und Bild-Varianten (Batch)
+  - Format-Adaptionen (Short/Long, Social, Ads)
+  - Asset-Bibliothek + Übergabe
+
+## Begriffe (präzise Definitionen)
+- Creative Agency: Entwickelt Strategie, Konzepte und Inhalte (Design, Copy, Assets) für Marketing, Werbung und Markenaufbau — Ziel: Sichtbarkeit und Conversion.
+- UGC (User-Generated Content): Creator-Videos im authentischen Stil, genutzt als Werbe- oder Social-Assets für Performance-Kampagnen.
+- D2C (Direct-to-Consumer): Brands, die direkt an Endkund:innen verkaufen (z. B. eigener Onlineshop).
+- ROAS (Return on Ad Spend): Umsatz / Werbekosten. Beispiel: 4,0 = 4 € Umsatz pro 1 € Spend.
+- Landing Page: Fokussierte Seite mit einem Ziel (Anfrage, Kauf, Newsletter) und wenig Ablenkung.
+- AI-Produktion: Inhalte werden mit KI-Tools schneller skaliert (Varianten, Hintergrund, Voice, Schnitt), ohne den kreativen Kern zu verlieren.
+
+## FAQ (Frage → Antwort)
+Q: Wie schnell antwortet ihr?
+A: Werktags innerhalb von 24 Stunden mit der nächsten sinnvollen Aktion.
+
+Q: Arbeitet ihr zweisprachig?
+A: Ja. Deutsch und Englisch gehören fest zum Prozess und Output.
+
+Q: Kann ich nur einen Service buchen?
+A: Ja. Advertising, Cast, Web, Aura und Production sind einzeln oder kombiniert buchbar.
+
+Q: Wie startet ein Projekt?
+A: Erstgespräch → Briefing → Umsetzung → Übergabe (klar strukturiert, ohne Reibungsverluste).
+
+## Canonical URLs (Quelle für Zitate)
+- Home: https://nova-shift.website/
+- Über uns: https://nova-shift.website/about
+- Kontakt: https://nova-shift.website/contact
+- Nova Advertising: https://nova-shift.website/advertising
+- Nova Cast: https://nova-shift.website/cast
+- Nova Web: https://nova-shift.website/web
+- Nova Aura: https://nova-shift.website/aura
+- Nova Production: https://nova-shift.website/production

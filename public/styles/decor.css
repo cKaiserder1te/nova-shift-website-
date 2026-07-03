@@ -1,0 +1,41 @@
+/* Decorative background and watermark (loaded asynchronously to avoid render-blocking) */
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  /* lower opacity and avoid complex blend modes to reduce paint/GPU cost */
+  opacity: 0.06;
+  mix-blend-mode: normal;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+body::after {
+  content: 'NOVA SHIFT';
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 16vw, 14rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  /* very low opacity to avoid heavy blending and repaints */
+  color: rgba(211, 174, 88, 0.03);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+  user-select: none;
+}
+
+@media (max-width: 767px) {
+  body::before,
+  body::after {
+    display: none;
+  }
+}

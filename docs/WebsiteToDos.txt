@@ -1,0 +1,10 @@
+Todos zum finalisieren der website: 
+
+- email formular an die business mail funktional aufarbeiten - testen 
+muss funktionieren
+
+- Calendylink einfügen um einen weiteren Funnel zu erhalten 
+
+-bilder anpassen / in neuem stil generieren
+
+- Nova Cast 3 Säulen Einfügen mit Text und ein Text mit Hintergrund

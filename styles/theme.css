@@ -1,0 +1,68 @@
+:root {
+  --gold: #d3ae58;
+  --gold-light: #efcf87;
+  --gold-dim: #9e7a30;
+  --bg: #050505;
+  --bg2: #0d0d0d;
+  --bg3: #141414;
+  --surface: #181818;
+  --surface-strong: #202020;
+  --border: rgba(211, 174, 88, 0.16);
+  --border-bright: rgba(211, 174, 88, 0.34);
+  --text: #f5efe4;
+  --text-muted: #bcb4a3;
+  --text-dim: #807867;
+  --text-inverse: #090909;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-ui: 'Rajdhani', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --radius-sm: 0.875rem;
+  --radius-md: 1.125rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-pill: 9999px;
+  --shadow-soft: 0 0 0 1px rgba(211, 174, 88, 0.12), 0 20px 60px rgba(0, 0, 0, 0.28);
+  --shadow-lift: 0 0 0 1px rgba(211, 174, 88, 0.18), 0 28px 90px rgba(0, 0, 0, 0.42);
+  --shadow-hero: 0 0 0 1px rgba(211, 174, 88, 0.2), 0 40px 120px rgba(0, 0, 0, 0.48);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-strong: cubic-bezier(0.19, 1, 0.22, 1);
+  --motion-fast: 160ms;
+  --motion-medium: 260ms;
+  --motion-slow: 420ms;
+  --grid-gap-tight: 0.75rem;
+  --grid-gap: 1.5rem;
+  --grid-gap-loose: 2rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(211, 174, 88, 0.12), transparent 34%),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.04), transparent 28%),
+    linear-gradient(180deg, #070707 0%, #050505 44%, #030303 100%);
+  color: var(--text);
+  cursor: auto;
+  text-rendering: optimizeLegibility;
+}
+
+/* Decorative background and watermark moved to styles/decor.css and loaded asynchronously */
+ 
+*,
+*::before,
+*::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+body::before,
+body::after {
+  display: none;
+}

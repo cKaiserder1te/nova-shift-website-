@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self';">
+<title>Nova Shift – Full-Service Creative Agency für Werbung, UGC, Web & Branding</title>
+<meta name="description" content="Nova Shift ist die Full-Service Creative Agency für ambitionierte Brands. Wir liefern Kampagnen, UGC-Content, Webdesign, Branding und AI-Produktion aus einer Hand. Sichtbar werden. Konvertieren. Wachsen.">
+<meta name="keywords" content="Creative Agency Deutschland, UGC Agentur, Webdesign Agentur, Branding Agentur, AI Content Agentur, Social Media Ads, Meta Ads Agentur, Performance Marketing, Nova Shift">
+<meta name="author" content="Nova Shift">
+<link rel="canonical" href="https://nova-shift.website/">
+<meta property="og:title" content="Nova Shift – Creative Agency für Brands die auffallen">
+<meta property="og:description" content="Von Kampagnen über UGC bis zu Webdesign und AI-Produktion. Nova Shift ist euer vollständiges digitales Wachstumssystem.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nova-shift.website/">
+<meta property="og:image" content="https://raw.githubusercontent.com/pietluke/Bilder-und-Videos/main/Nova_Shift_Logo__2_-removebg-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nova Shift",
+  "url": "https://nova-shift.website/",
+  "logo": "https://raw.githubusercontent.com/pietluke/Bilder-und-Videos/main/Nova_Shift_Logo__2_-removebg-preview.png",
+  "description": "Full-Service Creative Agency für Werbung, UGC-Content, Webdesign, Branding und AI-Produktion.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hello@nova-shift.website",
+    "contactType": "Customer Service",
+    "availableLanguage": ["German", "English"]
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Nova Shift Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nova Advertising", "description": "Kampagnen und Performance Ads für Meta, Google, TikTok" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nova Cast", "description": "UGC Content und AI-generierte Ad-Creatives" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nova Web", "description": "Webdesign, Shops und digitale Infrastruktur" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nova Aura", "description": "Branding und Markenidentität" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nova Production", "description": "AI-Content und Produktshooting" }}
+    ]
+  },
+  "sameAs": ["https://nova-shift.website/"]
+}
+</script>
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8cc80;
+    --gold-dim: #a08442;
+    --bg: #080808;
+    --bg2: #0f0f0f;
+    --bg3: #141414;
+    --surface: #1a1a1a;
+    --border: rgba(201,168,76,0.18);
+    --border-bright: rgba(201,168,76,0.5);
+    --text: #f0ede4;
+    --text-muted: #b0aa9a;
+    --text-dim: #7d7870;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-ui: 'Rajdhani', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-ui);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed;
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 32px; height: 32px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.15s ease;
+    opacity: 0.5;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.45;
+    mix-blend-mode: screen;
+    animation: noiseShift 20s infinite linear;
+  }
+
+  @keyframes noiseShift {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-10px, 10px); }
+    50% { transform: translate(10px, -10px); }
+    75% { transform: translate(-5px, 5px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  body::after {
+    content: 'NOVA SHIFT';
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 16vw, 14rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(201, 168, 76, 0.05);
+    pointer-events: none;
+    z-index: 0;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  /* Nova Stars */
+  .nova-stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+  }
+  .star:nth-child(odd) { animation-delay: -1s; }
+  .star:nth-child(3n) { animation-delay: -2s; }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 2.5rem;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.98) 0%, transparent 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201,168,76,0.06);
+  }
+
+  .nav-left { display: flex; align-items: center; gap: 1.25rem; }
+  .nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; cursor: none; }
+  .nav-logo img { height: 44px; width: auto; filter: brightness(0) invert(1) sepia(1) saturate(0.6) brightness(0.85); opacity: 0.9; }
+  .nav-brand { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.35em; color: var(--gold-dim); text-transform: uppercase; }
+
+  .nav-links { display: flex; gap: 0; list-style: none; }
+
+  .nav-home-btn {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    color: var(--gold-dim); text-decoration: none;
+    font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    transition: color 0.3s;
+    border-right: 1px solid var(--border); margin-right: 0.5rem;
+  }
+  .nav-home-btn:hover { color: var(--gold-light); }
+  .nav-home-btn svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .nav-links a {
+    display: block; padding: 0.5rem 1.2rem;
+    color: var(--text-muted); text-decoration: none;
+    font-family: var(--font-ui); font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    transition: color 0.3s; position: relative;
+    cursor: none;
+  }
+  .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 1px; background: var(--gold); transition: all 0.3s; }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links a:hover::after { left: 1.2rem; right: 1.2rem; }
+  .nav-links a.active { color: var(--gold); }
+  .nav-links a.active::after { left: 1.2rem; right: 1.2rem; }
+
+  .nav-cta {
+    background: transparent; border: 1px solid var(--border-bright); color: var(--gold);
+    font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.55rem 1.4rem; transition: all 0.3s; cursor: pointer;
+    cursor: none;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--bg); }
+
+  .page-section { display: none; min-height: 100vh; }
+  .page-section.active { display: block; }
+  .page-section { animation: fadeSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.99); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    overflow: hidden; padding: 10rem 3rem 4rem;
+  }
+
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+  }
+
+  .hero-orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+  .hero-orb-1 { width: 600px; height: 600px; top: -200px; left: -200px; background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%); }
+  .hero-orb-2 { width: 400px; height: 400px; bottom: -120px; right: -100px; background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%); }
+
+  .hero-label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.25em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 2rem; opacity: 0; animation: fadeIn 1s 0.3s forwards; font-weight: 700; }
+  .hero-title { font-family: var(--font-display); font-size: clamp(3.5rem, 9vw, 8rem); font-weight: 300; line-height: 1.0; text-align: center; letter-spacing: -0.02em; margin-bottom: 1.5rem; opacity: 0; animation: fadeIn 1s 0.5s forwards; }
+  .hero-title em { font-style: italic; color: var(--gold); }
+  .hero-subtitle { font-family: var(--font-ui); font-size: 1rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); text-align: center; max-width: 640px; line-height: 2; margin-bottom: 2.5rem; opacity: 0; animation: fadeIn 1s 0.7s forwards; }
+  .hero-meta { font-size: 0.95rem; color: var(--text-dim); text-align: center; max-width: 720px; line-height: 1.7; margin-bottom: 3rem; opacity: 0; animation: fadeIn 1s 0.9s forwards; }
+
+  .hero-logo-display { margin-bottom: 1.5rem; opacity: 0; animation: fadeIn 1s 0.4s forwards; }
+  .hero-logo-display img { height: 60px; width: auto; }
+  .hero-services { display: flex; gap: 2px; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem; opacity: 0; animation: fadeIn 1s 1.0s forwards; }
+  .hero-service-pill { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); padding: 0.4rem 1rem; border: 1px solid rgba(201,168,76,0.08); transition: all 0.3s; }
+  .hero-service-pill:hover { color: var(--gold); border-color: var(--border-bright); background: rgba(201,168,76,0.04); }
+  .hero-cta-group { display: flex; gap: 1rem; opacity: 0; animation: fadeIn 1s 1.2s forwards; }
+
+  .btn-primary { background: var(--gold); color: var(--bg); font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.9rem 2.5rem; border: none; cursor: pointer; transition: all 0.3s; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); cursor: none; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--text-muted); font-family: var(--font-ui); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.9rem 2.5rem; border: 1px solid var(--border); cursor: pointer; transition: all 0.3s; cursor: none; }
+  .btn-outline:hover { color: var(--gold); border-color: var(--border-bright); transform: translateY(-2px); }
+
+  .hero-scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0; animation: fadeIn 1s 1.5s forwards; }
+  .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, transparent, var(--gold-dim)); animation: scrollPulse 2s infinite; }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+  .scroll-text { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.3em; color: var(--text-dim); text-transform: uppercase; writing-mode: vertical-rl; }
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  .service-hero { position: relative; min-height: 55vh; display: flex; align-items: flex-end; padding: 8rem 3rem 4rem; overflow: hidden; }
+  .service-hero-bg { position: absolute; inset: 0; background: var(--bg); }
+  .service-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px); background-size: 40px 40px; }
+  .service-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, var(--bg) 20%, transparent 100%); }
+  .service-hero-content { position: relative; z-index: 2; max-width: 980px; }
+
+  .service-tag { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.25em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; font-weight: 700; }
+  .service-tag::before { content: ''; display: inline-block; width: 30px; height: 1px; background: var(--gold-dim); }
+  .service-title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.0; margin-bottom: 1.2rem; }
+  .service-title em { font-style: italic; color: var(--gold); }
+  .service-tagline { font-family: var(--font-ui); font-size: 1.05rem; font-weight: 400; letter-spacing: 0.08em; color: var(--text-muted); max-width: 640px; line-height: 1.8; }
+
+  .content-section { padding: 5rem 3rem; max-width: 1300px; margin: 0 auto; }
+
+  .section-heading { margin-bottom: 3rem; }
+  .section-heading-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.25em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 1rem; font-weight: 700; }
+  .section-heading-label::before { content: ''; width: 20px; height: 1px; background: var(--gold-dim); }
+  .section-heading h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.1; }
+  .section-heading h2 em { font-style: italic; color: var(--gold); }
+  .section-heading p { margin-top: 1rem; color: var(--text-muted); line-height: 1.8; max-width: 720px; }
+
+  .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin: 3rem 0; }
+  .info-card { background: var(--bg2); padding: 2.5rem; position: relative; overflow: hidden; transition: background 0.4s; }
+  .info-card::before { content: ''; position: absolute; top: 0; left: 0; width: 2px; height: 0; background: var(--gold); transition: height 0.4s; }
+  .info-card:hover { background: var(--bg3); }
+  .info-card:hover::before { height: 100%; }
+  .card-number { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.25em; color: var(--gold-dim); margin-bottom: 1.5rem; font-weight: 700; }
+  .card-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; color: var(--text); margin-bottom: 1rem; line-height: 1.2; }
+  .card-text { font-family: var(--font-ui); font-size: 1rem; font-weight: 400; color: var(--text-muted); line-height: 1.8; }
+
+  .usp-section { padding: 4rem 3rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); }
+  .usp-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start; }
+  .usp-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.25em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700; }
+  .usp-heading { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; line-height: 1.2; }
+  .usp-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .usp-item { padding: 1.5rem; border: 1px solid var(--border); transition: border-color 0.3s; }
+  .usp-item:hover { border-color: var(--border-bright); }
+  .usp-item-icon { font-family: var(--font-mono); font-size: 0.82rem; color: var(--gold); margin-bottom: 0.8rem; letter-spacing: 0.1em; font-weight: 700; }
+  .usp-item-title { font-family: var(--font-ui); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; color: var(--text); }
+  .usp-item-text { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; font-weight: 400; }
+
+  .image-feature-block { margin: 4rem 0 0; border-top: 1px solid var(--border); padding-top: 4rem; display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); grid-template-areas: "heading image" "title image"; gap: 1.5rem 3rem; align-items: start; }
+  .image-feature-heading { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.25em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 1rem; font-weight: 700; grid-area: heading; }
+  .image-feature-heading::before { content: ''; width: 20px; height: 1px; background: var(--gold-dim); }
+  .image-feature-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.15; color: var(--text); margin-bottom: 0; grid-area: title; }
+  .image-feature-container { position: relative; width: 100%; background: var(--bg3); border: 1px solid var(--border); overflow: hidden; aspect-ratio: 5 / 2; grid-area: image; }
+  .about-image-feature-container { aspect-ratio: 2 / 1; }
+  .web-image-feature-container { aspect-ratio: 2 / 1; }
+  .image-feature-container.aura-image-feature-container { aspect-ratio: 5 / 4; }
+  .production-image-feature-container { aspect-ratio: 4 / 3; }
+  .image-feature-container::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px); background-size: 30px 30px; z-index: 0; }
+  .image-feature-container img.feature-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 25%; transform: scale(1.06); transform-origin: center; display: block; z-index: 1; }
+  .web-image-feature-container img.feature-img { object-position: 35% 15%; }
+  .image-feature-caption { position: absolute; left: 0; bottom: 0; right: 0; z-index: 2; padding: 2rem; background: linear-gradient(to top, rgba(8,8,8,0.75) 0%, transparent 100%); }
+  .image-feature-caption h3 { font-family: var(--font-display); font-size: clamp(1.1rem, 2.2vw, 1.6rem); font-weight: 300; color: var(--text); }
+  .image-feature-caption p { margin-top: 0.4rem; font-size: 0.9rem; color: var(--text-muted); letter-spacing: 0.06em; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); margin: 3rem 0; }
+  .service-card { background: var(--bg2); padding: 3rem; cursor: pointer; transition: background 0.4s; position: relative; overflow: hidden; }
+  .service-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; }
+  .service-card:hover { background: var(--bg3); }
+  .service-card:hover::after { opacity: 1; }
+  .service-card-num { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.25em; color: var(--gold-dim); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; font-weight: 700; }
+  .service-card-num::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .service-card-name { font-family: var(--font-display); font-size: 2rem; font-weight: 300; line-height: 1.1; margin-bottom: 0.8rem; }
+  .service-card-name em { font-style: italic; color: var(--gold); }
+  .service-card-desc { font-size: 0.97rem; color: var(--text-muted); font-weight: 400; line-height: 1.8; margin-bottom: 1.5rem; }
+  .service-card-link { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; color: var(--gold-dim); text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 0.8rem; transition: color 0.3s; font-weight: 700; }
+  .service-card-link::after { content: '→'; font-size: 0.8rem; transition: transform 0.3s; }
+  .service-card:hover .service-card-link { color: var(--gold); }
+  .service-card:hover .service-card-link::after { transform: translateX(4px); }
+
+  .stat-bar { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); margin: 4rem 0; }
+  .stat-item { padding: 2rem; text-align: center; border-right: 1px solid var(--border); }
+  .stat-item:last-child { border-right: none; }
+  .stat-number { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+  .stat-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.25em; color: var(--text-dim); text-transform: uppercase; font-weight: 700; }
+
+  .contact-block { max-width: 760px; margin: 0 auto; text-align: center; padding: 5rem 3rem; }
+  .contact-block h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; }
+  .contact-block h2 em { font-style: italic; color: var(--gold); }
+  .contact-block p { font-size: 0.95rem; color: var(--text-muted); font-weight: 300; line-height: 1.8; margin-bottom: 2.5rem; }
+
+  .contact-form { display: grid; gap: 1px; background: var(--border); text-align: left; }
+  .form-row { background: var(--bg2); padding: 1.5rem 2rem; }
+  .form-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.3em; color: var(--gold-dim); margin-bottom: 0.5rem; display: block; }
+  .form-input { width: 100%; background: none; border: none; outline: none; font-family: var(--font-ui); font-size: 1rem; color: var(--text); font-weight: 300; }
+  .form-select { width: 100%; background: var(--bg2); border: none; outline: none; font-family: var(--font-ui); font-size: 1rem; color: var(--text-muted); font-weight: 300; cursor: pointer; }
+  .form-textarea { width: 100%; background: none; border: none; outline: none; font-family: var(--font-ui); font-size: 1rem; color: var(--text); font-weight: 300; resize: vertical; min-height: 120px; }
+
+  footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 4rem 3rem 2rem; margin-top: 4rem; }
+  .footer-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+  .footer-brand img { height: 50px; filter: brightness(0) invert(1) sepia(1) saturate(0.3) brightness(0.7); opacity: 0.6; margin-bottom: 1rem; }
+  .footer-tagline { font-size: 0.92rem; color: var(--text-dim); font-weight: 400; line-height: 1.8; max-width: 280px; }
+  .footer-col-title { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 1.2rem; font-weight: 700; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 0.6rem; }
+  .footer-links a { color: var(--text-dim); text-decoration: none; font-size: 0.92rem; font-weight: 400; transition: color 0.3s; letter-spacing: 0.05em; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); }
+  .footer-copy { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.15em; color: var(--text-dim); font-weight: 700; }
+
+  .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .mobile-menu-btn span { display: block; width: 24px; height: 1px; background: var(--text-muted); transition: all 0.3s; }
+
+  @media (max-width: 1000px) {
+    nav { padding: 0.75rem 1.5rem; }
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: flex; }
+    .nav-cta { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: rgba(8,8,8,0.98); backdrop-filter: blur(20px); padding: 2rem; border-bottom: 1px solid var(--border); z-index: 499; }
+    .three-col { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .usp-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .usp-list { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .content-section { padding: 3rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .service-hero { padding: 6rem 1.5rem 3rem; }
+    .image-feature-block { display: block; }
+    .image-feature-heading { margin-bottom: 1rem; }
+    .image-feature-title { margin-bottom: 1.5rem; }
+    .image-feature-container { aspect-ratio: 4 / 3; }
+    .about-image-feature-container { aspect-ratio: 4 / 3; }
+    .web-image-feature-container { aspect-ratio: 4 / 3; }
+    .image-feature-container.aura-image-feature-container { aspect-ratio: 4 / 3; }
+    .production-image-feature-container { aspect-ratio: 4 / 3; }
+    .stat-bar { grid-template-columns: 1fr 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+  }
+
+  @media (max-width: 640px) {
+    .hero-cta-group { flex-direction: column; width: 100%; }
+    .btn-primary, .btn-outline { width: 100%; }
+    .footer-bottom { flex-direction: column; gap: 0.8rem; }
+    .nav-brand { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="nova-stars">
+  <div class="star" style="top: 10%; left: 20%;"></div>
+  <div class="star" style="top: 20%; left: 80%;"></div>
+  <div class="star" style="top: 30%; left: 40%;"></div>
+  <div class="star" style="top: 50%; left: 60%;"></div>
+  <div class="star" style="top: 70%; left: 30%;"></div>
+  <div class="star" style="top: 80%; left: 90%;"></div>
+  <div class="star" style="top: 15%; left: 70%;"></div>
+  <div class="star" style="top: 60%; left: 10%;"></div>
+  <div class="star" style="top: 40%; left: 50%;"></div>
+  <div class="star" style="top: 85%; left: 25%;"></div>
+</div>
+
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="#" class="nav-logo" onclick="showSection('home'); return false;">
+      <img src="https://raw.githubusercontent.com/pietluke/Bilder-und-Videos/main/Nova_Shift_Logo__2_-removebg-preview.png" alt="Nova Shift Logo">
+    </a>
+    <div class="nav-brand">Creative Agency</div>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li>
+      <a href="#" class="nav-home-btn" onclick="showSection('home'); return false;" id="home-nav-btn" style="display:none;">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Startseite</span>
+      </a>
+    </li>
+    <li><a href="#" onclick="showSection('about'); return false;" data-section="about">Über uns</a></li>
+    <li><a href="#" onclick="showSection('advertising'); return false;" data-section="advertising">Nova Advertising</a></li>
+    <li><a href="#" onclick="showSection('cast'); return false;" data-section="cast">Nova Cast</a></li>
+    <li><a href="#" onclick="showSection('web'); return false;" data-section="web">Nova Web</a></li>
+    <li><a href="#" onclick="showSection('aura'); return false;" data-section="aura">Nova Aura</a></li>
+    <li><a href="#" onclick="showSection('production'); return false;" data-section="production">Nova Production</a></li>
+  </ul>
+  <button class="nav-cta" onclick="showSection('contact')">Kontakt</button>
+  <button class="mobile-menu-btn" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="page-section active" id="section-home">
+  <header class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <p class="hero-label">Creative Agency – Est. 2025</p>
+    <div class="hero-logo-display">
+      <img src="https://raw.githubusercontent.com/pietluke/Bilder-und-Videos/main/Nova_Shift_Logo__2_-removebg-preview.png" alt="Nova Shift">
+    </div>
+    <h1 class="hero-title">We <em>Shift</em><br>the Way Brands<br>Are Seen</h1>
+    <p class="hero-subtitle">Full-Service Creative Agency für Brands, die mehr wollen</p>
+    <p class="hero-meta">
+      DE: Nova Shift vereint Kampagnen, Creator-Content, Webdesign, Branding und KI-Produktion zu einem einzigen, strategisch gedachten System.
+      EN: We turn brand ambition into visibility, content, and conversion — across every channel, at any scale.
+    </p>
+    <div class="hero-services">
+      <span class="hero-service-pill">Nova Advertising</span>
+      <span class="hero-service-pill">Nova Cast</span>
+      <span class="hero-service-pill">Nova Web</span>
+      <span class="hero-service-pill">Nova Aura</span>
+      <span class="hero-service-pill">Nova Production</span>
+    </div>
+    <div class="hero-cta-group">
+      <button class="btn-primary" onclick="showSection('contact')">Projekt starten</button>
+      <button class="btn-outline" onclick="document.getElementById('home-services').scrollIntoView({behavior:'smooth'})">Services ansehen</button>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Scroll</span>
+    </div>
+  </header>
+
+  <div class="content-section" id="home-services">
+    <div class="section-heading">
+      <div class="section-heading-label">Was wir bieten</div>
+      <h2>Fünf <em>Disziplinen.</em><br>Eine Vision.</h2>
+      <p>
+        DE: Von der ersten Idee bis zum skalierten Ergebnis — Nova Shift ist das vollständige Wachstumssystem für Marken mit Anspruch. Fünf spezialisierte Bereiche. Eine integrierte Strategie. Messbare Ergebnisse.
+        EN: From first idea to scaled result — five disciplines, one unified creative system built for brands that refuse to be overlooked.
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" onclick="showSection('advertising')">
+        <div class="service-card-num">01</div>
+        <div class="service-card-name">Nova <em>Advertising</em></div>
+        <p class="service-card-desc">DE: Performancegetriebene Kampagnen für Meta, Google und TikTok. Kreative Exzellenz trifft datenbasierte Optimierung — für Marken die messbar wachsen wollen. EN: Performance-driven campaigns for Meta, Google and TikTok. Creative excellence meets data-based optimization — for brands that want measurable growth.</p>
+        <span class="service-card-link">Mehr erfahren</span>
+      </div>
+      <div class="service-card" onclick="showSection('cast')">
+        <div class="service-card-num">02</div>
+        <div class="service-card-name">Nova <em>Cast</em></div>
+        <p class="service-card-desc">DE: UGC und KI-generierter Ad-Content für D2C-Brands und ambitionierte Marken — authentisch, skalierbar, plattformoptimiert. Das Herzstück von Nova Shift. EN: UGC and AI-generated ad content for D2C brands — authentic, scalable, platform-optimized. The creative engine of Nova Shift.</p>
+        <span class="service-card-link">Mehr erfahren</span>
+      </div>
+      <div class="service-card" onclick="showSection('web')">
+        <div class="service-card-num">03</div>
+        <div class="service-card-name">Nova <em>Web</em></div>
+        <p class="service-card-desc">DE: Hochkonvertierende Websites, Shops und Landing Pages für KMUs und Brands. DSGVO-konform, mobil-optimiert, live in 7–14 Tagen. EN: High-converting websites, shops and landing pages. GDPR-compliant, mobile-first, live in 7–14 days.</p>
+        <span class="service-card-link">Mehr erfahren</span>
+      </div>
+      <div class="service-card" onclick="showSection('aura')">
+        <div class="service-card-num">04</div>
+        <div class="service-card-name">Nova <em>Aura</em></div>
+        <p class="service-card-desc">DE: Markenidentitäten die in Erinnerung bleiben. Von der Positionierung über Logo und Typografie bis zum vollständigen Brand-System. EN: Brand identities that endure. From positioning and logo to a complete brand system.</p>
+        <span class="service-card-link">Mehr erfahren</span>
+      </div>
+    </div>
+    <div class="service-card" onclick="showSection('production')" style="margin-top:1px;">
+      <div class="service-card-num">05</div>
+      <div class="service-card-name">Nova <em>Production</em></div>
+      <p class="service-card-desc">DE: KI-gestützte Content-Produktion und Produkt-Shootings. Studioqualität, deutlich schnellere Lieferung, mehr Variationen. EN: AI-assisted content production and product shootings. Studio quality, faster delivery, more variations.</p>
+      <span class="service-card-link">Mehr erfahren</span>
+    </div>
+    <div class="stat-bar">
+      <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">Projekte</div></div>
+      <div class="stat-item"><div class="stat-number">∞</div><div class="stat-label">Möglichkeiten</div></div>
+      <div class="stat-item"><div class="stat-number">2</div><div class="stat-label">Ansprechpartner</div></div>
+      <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Leidenschaft</div></div>
+    </div>
+    <div class="contact-block">
+      <h2>Bereit für den nächsten <em>Shift?</em></h2>
+      <p>DE: Lass uns herausfinden, wie wir deine Marke unübersehbar machen. EN: Tell us where you want to go — we build the path.</p>
+      <button class="btn-primary" onclick="showSection('contact')">Jetzt Kontakt aufnehmen</button>
+    </div>
+  </div>
+</section>
+
+<section class="page-section" id="section-about">
+  <div class="service-hero">
+    <div class="service-hero-bg"></div>
+    <div class="service-hero-grid"></div>
+    <div class="service-hero-overlay"></div>
+    <div class="service-hero-content">
+      <div class="service-tag">Über uns / Our Story</div>
+      <h1 class="service-title">Zwei Gründer.<br>Eine Obsession.</h1>
+      <p class="service-tagline">DE: Nova Shift entsteht aus einer klaren Partnerschaft zwischen Strategie und Umsetzung. Wir machen Marken greifbar, klar und messbar. EN: Nova Shift is built on a clear partnership between strategy and execution. We make brands tangible, clear and measurable.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="three-col">
+      <div class="info-card"><div class="card-number">Warum Nova Shift</div><div class="card-title">Vertrauen + Performance</div><p class="card-text">DE: Gute Zusammenarbeit beginnt mit Vertrauen und endet mit messbaren Ergebnissen. Wir verbinden Haltung, Strategie und Umsetzung zu einem System. EN: Great collaboration starts with trust and ends with measurable results. We combine attitude, strategy and execution into one system.</p></div>
+      <div class="info-card"><div class="card-number">Arbeitsweise</div><div class="card-title">Klar statt kompliziert</div><p class="card-text">DE: Wir arbeiten direkt, transparent und mit klarer Roadmap. Keine Umwege, keine unnötige Komplexität, nur saubere Entscheidungen. EN: We work directly, transparently and with a clear roadmap. No detours, no unnecessary complexity, only clean decisions.</p></div>
+      <div class="info-card"><div class="card-number">Sprachen</div><div class="card-title">DE / EN</div><p class="card-text">DE: Zweisprachig gedacht, immer in dieser Reihenfolge. EN: Bilingual by design, always in this order.</p></div>
+    </div>
+    <div class="stat-bar">
+      <div class="stat-item"><div class="stat-number">2</div><div class="stat-label">Co-Founder</div></div>
+      <div class="stat-item"><div class="stat-number">2025</div><div class="stat-label">Gegründet</div></div>
+      <div class="stat-item"><div class="stat-number">Deutschland</div><div class="stat-label">Standort</div></div>
+      <div class="stat-item"><div class="stat-number">AI</div><div class="stat-label">Spezialität</div></div>
+    </div>
+    <div class="image-feature-block">
+      <div class="image-feature-heading">Einblick</div>
+      <h2 class="image-feature-title">DE: Vertrauen wird zu Strategie. EN: Trust becomes strategy.</h2>
+      <div class="image-feature-container about-image-feature-container">
+        <img class="feature-img" src="bilder/Gemini_Generated_Image_fwqvz0fwqvz0fwqv.png" alt="Zwei Geschäftspartner beim Handschlag über einer strategischen Roadmap">
+        <div class="image-feature-caption">
+          <h3>DE: Partnerschaft mit klarer Richtung. EN: Partnership with a clear direction.</h3>
+          <p>DE: Das Motiv steht für Verbindlichkeit, Planung und saubere Umsetzung. EN: The image stands for commitment, planning and precise execution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section" id="section-advertising">
+  <div class="service-hero">
+    <div class="service-hero-bg"></div>
+    <div class="service-hero-grid"></div>
+    <div class="service-hero-overlay"></div>
+    <div class="service-hero-content">
+      <div class="service-tag">01 / Nova Advertising</div>
+      <h1 class="service-title">Werbung,<br>die <em>bewegt.</em></h1>
+      <p class="service-tagline">DE: Kampagnen die Marken sichtbar machen und Umsatz treiben. EN: Attention-driven advertising built for measurable performance.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="three-col">
+      <div class="info-card"><div class="card-number">Was wir machen</div><div class="card-title">Kampagnen mit Wirkung</div><p class="card-text">DE: Wir übernehmen Konzeption, Produktion und Distribution eurer Kampagnen — von der Strategie bis zur Ausspielung auf allen relevanten Kanälen. EN: We handle concept, production and distribution from strategy to live across all relevant channels.</p></div>
+      <div class="info-card"><div class="card-number">Unsere Stärken</div><div class="card-title">Kreativ & datengetrieben</div><p class="card-text">DE: Jede Kampagne verbindet kreative Exzellenz mit messbaren Daten. Wir testen, optimieren und skalieren kontinuierlich. EN: Every campaign combines creative excellence with measurable data. We test, optimize and scale continuously.</p></div>
+      <div class="info-card"><div class="card-number">Warum Nova Advertising</div><div class="card-title">Full-Service aus einer Hand</div><p class="card-text">DE: Strategie, Creatives, Setup, Optimierung und Reporting kommen aus einem System. EN: Strategy, creatives, setup, optimization and reporting come from one system.</p></div>
+    </div>
+    <div class="image-feature-block">
+      <div class="image-feature-heading">Case Focus</div>
+      <h2 class="image-feature-title">DE: Launch-Kampagne für eine Lifestyle-Marke. EN: A bold launch that drove product demand across channels.</h2>
+      <div class="image-feature-container">
+        <img class="feature-img" src="bilder/Gemini_Generated_Image_mzzpuqmzzpuqmzzp.png" alt="Nova Advertising Visual">
+        <div class="image-feature-caption">
+          <h3>DE: Multi-Channel Storytelling. EN: Multi-channel storytelling.</h3>
+          <p>DE: Film, Social, Performance. EN: Film, social, performance ads.</p>
+        </div>
+      </div>
+    </div>
+    <div class="usp-section" style="margin: 0 -3rem; padding: 4rem 3rem;">
+      <div class="usp-inner">
+        <div><div class="usp-label">Unsere Stärken</div><h2 class="usp-heading">Warum Brands uns <em>wählen</em></h2></div>
+        <ul class="usp-list">
+          <li class="usp-item"><div class="usp-item-icon">[ 01 ]</div><div class="usp-item-title">Full-Service Produktion</div><p class="usp-item-text">DE: Konzept bis Ausspielung aus einer Hand. EN: End-to-end execution.</p></li>
+          <li class="usp-item"><div class="usp-item-icon">[ 02 ]</div><div class="usp-item-title">Plattform-Expertise</div><p class="usp-item-text">DE: IG, TikTok, Google, YouTube, LinkedIn. EN: Platform-native strategy.</p></li>
+          <li class="usp-item"><div class="usp-item-icon">[ 03 ]</div><div class="usp-item-title">Schnelle Lieferung</div><p class="usp-item-text">DE: Tempo ohne Qualitätsverlust. EN: Fast, without compromise.</p></li>
+          <li class="usp-item"><div class="usp-item-icon">[ 04 ]</div><div class="usp-item-title">ROI-Fokus</div><p class="usp-item-text">DE: Performance-orientiert. EN: Conversion-first thinking.</p></li>
+        </ul>
+      </div>
+    </div>
+    <div class="three-col">
+      <div class="info-card"><div class="card-number">Ergebnis</div><div class="card-title">Mehr Sichtbarkeit</div><p class="card-text">DE: Kampagnen, die nicht nur Aufmerksamkeit erzeugen, sondern die Marke sauber positionieren. EN: Campaigns that do not just attract attention but position the brand clearly.</p></div>
+      <div class="info-card"><div class="card-number">Ergebnis</div><div class="card-title">Mehr Klarheit</div><p class="card-text">DE: Jede Botschaft wird entlang eines Ziels gebaut, nicht umgekehrt. EN: Every message is built around a goal, not the other way around.</p></div>
+      <div class="info-card"><div class="card-number">Ergebnis</div><div class="card-title">Mehr Conversion</div><p class="card-text">DE: Creative Direction und Performance sitzen im selben Raum. EN: Creative direction and performance live in the same room.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section" id="section-cast">
+  <div class="service-hero">
+    <div class="service-hero-bg"></div><div class="service-hero-grid"></div><div class="service-hero-overlay"></div>
+    <div class="service-hero-content">
+      <div class="service-tag">02 / Nova Cast</div>
+      <h1 class="service-title">Content der <em>konvertiert.</em><br>und nicht aufhört zu skalieren.</h1>
+      <p class="service-tagline">DE: UGC-Content und KI-generierte Ad-Creatives für D2C-Brands. Authentisch. Skalierbar. Performance-ready. EN: Creator-first content production powered by AI. One shoot. Many assets. Unlimited scale.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="section-heading">
+      <div class="section-heading-label">Was ist Nova Cast?</div>
+      <h2>Das <em>Content-Betriebssystem</em><br>für performante Marken.</h2>
+      <p>DE: Nova Cast ist die UGC- und AI-Content-Abteilung von Nova Shift. Wir bauen systematische Produktions-Pipelines: ein Shooting liefert über AI-gestützte Nachproduktion eine hohe Zahl fertiger Ad-Assets — optimiert für Meta, TikTok und Instagram. EN: Nova Cast is the UGC and AI content division of Nova Shift. We build systematic production pipelines: one shoot delivers a large set of finished ad assets through AI-powered post-production, optimized for Meta, TikTok and Instagram.</p>
+    </div>
+    <div class="three-col">
+      <div class="info-card"><div class="card-number">Was wir machen</div><div class="card-title">UGC & AI Content</div><p class="card-text">DE: Authentische Creator-Videos und KI-generierte Ad-Creatives in einem integrierten System. Creator-Netzwerk, AI-Pipeline, Hook-Testing und Creative-Rotation — alles koordiniert. EN: Authentic creator videos and AI-generated ad creatives in one integrated system. Creator network, AI pipeline, hook testing and creative rotation — all coordinated.</p></div>
+      <div class="info-card"><div class="card-number">Unser Ansatz</div><div class="card-title">1 Shoot → viele Assets</div><p class="card-text">DE: Ein einziges Shooting ist unser Startpunkt. Verschiedene Hooks, Hintergründe, Musik, Untertitel-Stile und Formate entstehen in der Post-Production. EN: One shoot is our starting point. Different hooks, backgrounds, music, subtitle styles and formats are created in post-production.</p></div>
+      <div class="info-card"><div class="card-number">Warum Nova Cast</div><div class="card-title">Authentizität trifft Technologie</div><p class="card-text">DE: UGC wirkt nur wenn es echt klingt. Unsere Creator werden so gebrieft, dass Markenaussage und persönliche Authentizität zusammenkommen. Die KI skaliert das — nicht ersetzt es. EN: UGC only works if it sounds real. Our creators are briefed so brand message and personal authenticity meet. AI scales that — it does not replace it.</p></div>
+    </div>
+    <div class="section-heading" style="margin-top:4rem;">
+      <div class="section-heading-label">Unsere Produktlinien</div>
+      <h2>Vier Wege zu<br><em>besseren Creatives.</em></h2>
+      <p>DE: Unsere Content-Systeme sind modular aufgebaut und können einzeln oder kombiniert eingesetzt werden. EN: Our content systems are modular and can be used individually or in combination.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-num">01</div>
+        <div class="service-card-name">Pure <em>UGC</em></div>
+        <p class="service-card-desc">DE: Echte Creator, echter Content. Briefing, Casting, Koordination und Post-Production in einem Ablauf. Für Brands die Authentizität als Vorteil nutzen wollen. EN: Real creators, real content. Briefing, casting, coordination and post-production in one workflow. For brands that want to use authenticity as an advantage.</p>
+        <span class="service-card-link">Mehr erfahren</span>
+      </div>
+      <div class="service-card">
+        <div class="service-card-num">02</div>
+        <div class="service-card-name">AI-Enhanced <em>UGC</em></div>
+        <p class="service-card-desc">DE: Ein Shooting wird durch unsere AI-Pipeline zu vielen finalen Ad-Assets. Hook-Variationen, Hintergrund-Remixing, Musik-Testing und animierte Captions. EN: One shoot becomes many finished ad assets through our AI pipeline. Hook variations, background remixing, music testing and animated captions.</p>
+        <span class="service-card-link">Mehr erfahren</span>
+      </div>
+      <div class="service-card">
+        <div class="service-card-num">03</div>
+        <div class="service-card-name">Pure <em>AI</em> Ads</div>
+        <p class="service-card-desc">DE: Kein Shooting notwendig. KI-Avatare, synthetische Stimmen, AI-generierte B-Roll und automatisierte Nachproduktion. Für Produkte und Services mit Fokus auf Effizienz und Volumen. EN: No shoot required. AI avatars, synthetic voices, AI-generated B-roll and automated post-production. For products and services focused on efficiency and volume.</p>
+        <span class="service-card-link">Mehr erfahren</span>
+      </div>
+      <div class="service-card">
+        <div class="service-card-num">04</div>
+        <div class="service-card-name">Content-<em>Repurposing</em></div>
+        <p class="service-card-desc">DE: Wir optimieren vorhandenen Content für Instagram Reels, TikTok, YouTube Shorts und LinkedIn inklusive plattformspezifischer Captions und Hashtags. EN: We optimize existing content for Instagram Reels, TikTok, YouTube Shorts and LinkedIn, including platform-specific captions and hashtags.</p>
+        <span class="service-card-link">Mehr erfahren</span>
+      </div>
+    </div>
+    <div class="section-heading" style="margin-top:4rem;">
+      <div class="section-heading-label">Nova Cast + Performance</div>
+      <h2>Wir produzieren nicht nur.<br><em>Wir schalten auch.</em></h2>
+      <p>DE: Der natürliche nächste Schritt nach dem perfekten Creative ist die perfekte Kampagne. Nova Cast kann eure Ads direkt managen — wir kennen jedes Asset, das wir produziert haben, und wissen wie es performed. EN: The natural next step after the perfect creative is the perfect campaign. Nova Cast can manage your ads directly — we know every asset we produced and how it performs best.</p>
+    </div>
+    <div class="three-col">
+      <div class="info-card"><div class="card-number">Modell 01</div><div class="card-title">Starter</div><p class="card-text">DE: Direkter Einstieg in Meta oder TikTok mit klarer Creative-Pipeline und laufender Optimierung. EN: Direct start on Meta or TikTok with a clear creative pipeline and ongoing optimization.</p></div>
+      <div class="info-card"><div class="card-number">Modell 02</div><div class="card-title">Growth</div><p class="card-text">DE: Multi-Channel-Setup mit Creative-Rotation und Testing-Logik. EN: Multi-channel setup with creative rotation and testing logic.</p></div>
+      <div class="info-card"><div class="card-number">Modell 03</div><div class="card-title">Scale</div><p class="card-text">DE: Full-Funnel-Betreuung für größere Accounts mit engem Reporting und Skalierung. EN: Full-funnel support for larger accounts with close reporting and scaling.</p></div>
+    </div>
+    <div class="section-heading" style="margin-top:4rem;">
+      <div class="section-heading-label">So arbeiten wir</div>
+      <h2>Von der Idee zur<br><em>skalierten Kampagne.</em></h2>
+    </div>
+    <div class="three-col">
+      <div class="info-card"><div class="card-number">01-02</div><div class="card-title">Brief & AI-Brief</div><p class="card-text">DE: Onboarding-Fragebogen, Zieldefinition und KI-generierter Projektplan. EN: Onboarding questionnaire, goal definition and AI-generated project plan.</p></div>
+      <div class="info-card"><div class="card-number">03-05</div><div class="card-title">Produktion & Review</div><p class="card-text">DE: Creator-Shooting oder AI-Produktion, automatisches Remixing und schnelle Freigabe. EN: Creator shoot or AI production, automated remixing and fast approval.</p></div>
+      <div class="info-card"><div class="card-number">06-07</div><div class="card-title">Testing & Scale</div><p class="card-text">DE: A/B-Test live, Winner-Creative wird skaliert und weiter verwertet. EN: A/B test goes live, winning creative is scaled and reused.</p></div>
+    </div>
+    <div class="section-heading" style="margin-top:4rem;">
+      <div class="section-heading-label">Wer Nova Cast nutzt</div>
+      <h2>Für Brands die<br><em>wachsen wollen.</em></h2>
+    </div>
+    <div class="three-col">
+      <div class="info-card"><div class="card-number">D2C-Brands</div><div class="card-title">Content-Abteilung ohne Festanstellung</div><p class="card-text">DE: Kontinuierlich frische Creatives für Meta und TikTok. EN: Continuous fresh creatives for Meta and TikTok.</p></div>
+      <div class="info-card"><div class="card-number">E-Commerce</div><div class="card-title">Ad Fatigue lösen</div><p class="card-text">DE: Mehr Variationen aus einer einzigen Produktion. EN: More variations from a single production.</p></div>
+      <div class="info-card"><div class="card-number">Wachstumsstarke KMUs</div><div class="card-title">Sichtbar werden</div><p class="card-text">DE: Von 0 auf fertige Ads inklusive Strategie und Setup. EN: From zero to finished ads including strategy and setup.</p></div>
+    </div>
+    <div class="stat-bar">
+      <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">Projekte</div></div>
+      <div class="stat-item"><div class="stat-number">7 Tage</div><div class="stat-label">Lieferzeit</div></div>
+      <div class="stat-item"><div class="stat-number">25–50</div><div class="stat-label">Assets / Shoot</div></div>
+      <div class="stat-item"><div class="stat-number">90%</div><div class="stat-label">AI-Workflow</div></div>
+    </div>
+    <div class="image-feature-block">
+      <div class="image-feature-heading">Case Einblick</div>
+      <h2 class="image-feature-title">DE: Ein Dreh, viele Assets. EN: One shoot, many assets.</h2>
+      <div class="image-feature-container">
+        <img class="feature-img" src="bilder/Gemini_Generated_Image_uu2x9puu2x9puu2x.png" alt="Nova Cast Produktion am Set">
+        <div class="image-feature-caption">
+          <h3>DE: Set, Shot, Scale. EN: Set, shoot, scale.</h3>
+          <p>DE: Content entsteht hier so, dass er direkt für Ads und Social bereit ist. EN: Content is produced ready for ads and social from the start.</p>
+        </div>
+      </div>
+    </div>
+    <div class="three-col" style="margin-top:4rem;">
+      <div class="info-card"><div class="card-number">Feedback</div><div class="card-title">Hook-Testing Engine</div><p class="card-text">DE: Wir testen Varianten live und skalieren nur den Winner. EN: We test variants live and scale only the winner.</p></div>
+      <div class="info-card"><div class="card-number">Feedback</div><div class="card-title">Authentizität by Design</div><p class="card-text">DE: Markenbotschaft und natürlicher Auftritt passen sichtbar zusammen. EN: Brand message and natural delivery visibly align.</p></div>
+      <div class="info-card"><div class="card-number">Feedback</div><div class="card-title">Plug-in Ad Management</div><p class="card-text">DE: Vom Content zum laufenden Kampagnen-Management in einer Buchung. EN: From content to ongoing campaign management in one booking.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section" id="section-web">
+  <div class="service-hero">
+    <div class="service-hero-bg"></div><div class="service-hero-grid"></div><div class="service-hero-overlay"></div>
+    <div class="service-hero-content">
+      <div class="service-tag">03 / Nova Web Solutions</div>
+      <h1 class="service-title">Digitale Präsenz,<br><em>neu definiert.</em></h1>
+      <p class="service-tagline">DE: Websites, Shops und Landing Pages mit klarer Struktur, sauberer Typografie und Conversion-Logik. EN: Experience-led web design built on clarity, hierarchy and performance.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="three-col">
+      <div class="info-card"><div class="card-number">Was wir machen</div><div class="card-title">Websites mit Struktur</div><p class="card-text">DE: Wir entwickeln digitale Auftritte als klare Systeme: Wireframes, Typografie, Content-Hierarchie und saubere Interaktionen. Von der Landing Page bis zur Vollwebsite. EN: We build digital presences as clear systems: wireframes, typography, content hierarchy and clean interactions.</p></div>
+      <div class="info-card"><div class="card-number">Unsere Ziele</div><div class="card-title">Klarheit vor Dekoration</div><p class="card-text">DE: Eine gute Website führt ohne zu überladen. Jede Sektion, jeder CTA und jede Zwischenüberschrift hat einen funktionalen Zweck. EN: A good website guides without clutter. Every section, CTA and subheading serves a functional purpose.</p></div>
+      <div class="info-card"><div class="card-number">Warum Nova Web</div><div class="card-title">Design bis Build</div><p class="card-text">DE: Wir übernehmen Design, Entwicklung, Texte, Bilder und Hosting als ein zusammenhängendes System. Keine Übergabeverluste, keine losen Enden. EN: We handle design, development, copy, imagery and hosting as one connected system. No handoff loss, no loose ends.</p></div>
+    </div>
+    <div class="section-heading" style="margin-top:4rem;">
+      <div class="section-heading-label">Web-Pakete</div>
+      <h2>Vier Wege zu<br><em>besseren Web-Erlebnissen.</em></h2>
+      <p>DE: Unsere Web-Angebote sind modular aufgebaut und richten sich nach Ziel, Umfang und Reifegrad des Projekts. EN: Our web offers are modular and adapt to the goal, scope and maturity of the project.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-card-num">01</div><div class="service-card-name">Nova <em>Landing</em></div><p class="service-card-desc">DE: Eine fokussierte Seite mit Wireframe-Logik, starkem Above-the-Fold, Social Proof und klarer CTA. Für Launches, neue Produkte und Events. EN: A focused page with wireframe logic, strong above-the-fold, social proof and a clear CTA.</p><span class="service-card-link">Mehr erfahren</span></div>
+      <div class="service-card"><div class="service-card-num">02</div><div class="service-card-name">Nova <em>Web</em></div><p class="service-card-desc">DE: Vollwebsite mit CMS, Blog, Kontaktformular, Impressum und Cookie-Banner. SEO-ready, mobil-optimiert und auf Skalierung gebaut. EN: Full website with CMS, blog, contact form, legal pages and cookie banner. SEO-ready, mobile-optimized and built to scale.</p><span class="service-card-link">Mehr erfahren</span></div>
+      <div class="service-card"><div class="service-card-num">03</div><div class="service-card-name">Nova <em>Shop</em></div><p class="service-card-desc">DE: Shopify oder WooCommerce mit Produkt-Setup, Checkout, Upsell-Flows und Pixel-Integration. Klare Kaufpfade statt Reibung. EN: Shopify or WooCommerce with product setup, checkout, upsell flows and pixel integration.</p><span class="service-card-link">Mehr erfahren</span></div>
+      <div class="service-card"><div class="service-card-num">04</div><div class="service-card-name">Nova <em>Maintain</em></div><p class="service-card-desc">DE: Laufende Pflege mit Updates, neuen Sektionen, A/B-Tests, Speed-Optimierung und SEO-Monitoring. Die Seite bleibt lebendig. EN: Ongoing maintenance with updates, new sections, A/B tests, speed optimization and SEO monitoring.</p><span class="service-card-link">Mehr erfahren</span></div>
+    </div>
+    <div class="usp-section" style="margin: 0 -3rem; padding: 4rem 3rem;">
+      <div class="usp-inner">
+        <div><div class="usp-label">Unsere Stärken</div><h2 class="usp-heading">Websites die klar <em>führen</em></h2></div>
+        <ul class="usp-list">
+          <li class="usp-item"><div class="usp-item-icon">[ 01 ]</div><div class="usp-item-title">AI-gestützter Aufbau</div><p class="usp-item-text">DE: Die Website-Texte werden aus dem Onboarding-Fragebogen und der Zielsetzung abgeleitet. EN: Website copy is generated from the onboarding questionnaire and project goal.</p></li>
+          <li class="usp-item"><div class="usp-item-icon">[ 02 ]</div><div class="usp-item-title">Wireframe-Logik</div><p class="usp-item-text">DE: Wir denken in Struktur, Reihenfolge und Blickführung — bevor wir dekorieren. EN: We think in structure, sequence and visual flow before decoration.</p></li>
+          <li class="usp-item"><div class="usp-item-icon">[ 03 ]</div><div class="usp-item-title">DSGVO aus der Box</div><p class="usp-item-text">DE: Impressum, Datenschutz und Cookie-Banner sind von Anfang an mitgedacht. EN: Legal pages and cookie banner are considered from the start.</p></li>
+          <li class="usp-item"><div class="usp-item-icon">[ 04 ]</div><div class="usp-item-title">Live in 7 Tagen</div><p class="usp-item-text">DE: Schnell sichtbar sein hat einen Wert — wir liefern ihn. EN: Being visible quickly has value — we deliver it.</p></li>
+        </ul>
+      </div>
+    </div>
+    <div class="image-feature-block">
+      <div class="image-feature-heading">Einblick</div>
+      <h2 class="image-feature-title">DE: Vom Wireframe zur fertigen Website. EN: From wireframe to live website.</h2>
+      <div class="image-feature-container web-image-feature-container">
+        <img class="feature-img" src="bilder/Gemini_Generated_Image_om7mvkom7mvkom7m.png" alt="Laptop mit Webdesign-Wireframe und Layout-Skizze">
+        <div class="image-feature-caption">
+          <h3>DE: Typografie, Struktur, Interaktion. EN: Typography, structure, interaction.</h3>
+          <p>DE: So entsteht Nova Web: klar geplant, sauber gebaut und auf Wirkung ausgerichtet. EN: This is how Nova Web is made: clearly planned, cleanly built and impact-driven.</p>
+        </div>
+      </div>
+    </div>
+    <div class="three-col" style="margin-top:4rem;">
+      <div class="info-card"><div class="card-number">Ergebnis</div><div class="card-title">Klarere Orientierung</div><p class="card-text">DE: Besucher verstehen schneller, wie die Seite aufgebaut ist und wohin sie gehen sollen. EN: Visitors understand the structure faster and where to go next.</p></div>
+      <div class="info-card"><div class="card-number">Ergebnis</div><div class="card-title">Mehr Vertrauen</div><p class="card-text">DE: Design, Tonalität und Inhalte greifen sichtbar ineinander. EN: Design, tone and content visibly work together.</p></div>
+      <div class="info-card"><div class="card-number">Ergebnis</div><div class="card-title">Mehr Conversion</div><p class="card-text">DE: Jede Seite ist auf ein messbares Ziel gebaut. EN: Every page is built around a measurable goal.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section" id="section-aura">
+  <div class="service-hero">
+    <div class="service-hero-bg"></div><div class="service-hero-grid"></div><div class="service-hero-overlay"></div>
+    <div class="service-hero-content">
+      <div class="service-tag">04 / Nova Aura</div>
+      <h1 class="service-title">Deine Marke.<br><em>Unvergesslich.</em></h1>
+      <p class="service-tagline">DE: Branding, Positionierung und Markenidentität, die Aufmerksamkeit lenkt und Vertrauen aufbaut. EN: Brand strategy and identity systems built to stand out and endure.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="three-col">
+      <div class="info-card"><div class="card-number">Was wir machen</div><div class="card-title">Brand Identity</div><p class="card-text">DE: Positionierung, Logo-System, Typografie, Farbwelt und Tonalität. Wir entwickeln Identitäten, die im Kopf bleiben und auf jedem Touchpoint konsistent wirken. EN: Positioning, logo system, typography, color world and tone. We develop identities that stay in mind and work consistently across every touchpoint.</p></div>
+      <div class="info-card"><div class="card-number">Unser Ansatz</div><div class="card-title">Strategie vor Stil</div><p class="card-text">DE: Ein starker Markenauftritt beginnt mit Klarheit: Wofür steht die Marke, wen erreicht sie und was macht sie unverwechselbar? Erst dann folgt die Form. EN: A strong brand presence starts with clarity: what does the brand stand for, who does it reach and what makes it unmistakable? Form comes after that.</p></div>
+      <div class="info-card"><div class="card-number">Warum Nova Aura</div><div class="card-title">Design mit Wiedererkennung</div><p class="card-text">DE: Wir bauen Marken, die auch nach Jahren noch präzise und hochwertig wirken. Keine Trends, keine austauschbaren Systeme — ein Auftritt mit Substanz. EN: We build brands that still feel precise and premium years later. No trends, no interchangeable systems — a presence with substance.</p></div>
+    </div>
+    <div class="section-heading" style="margin-top:4rem;">
+      <div class="section-heading-label">Was ihr bekommt</div>
+      <h2>Das vollständige<br><em>Marken-System.</em></h2>
+    </div>
+    <div class="three-col">
+      <div class="info-card"><div class="card-number">01</div><div class="card-title">Positionierung</div><p class="card-text">DE: Messaging-Framework, Markenstimme und klare Abgrenzung. EN: Messaging framework, brand voice and clear positioning.</p></div>
+      <div class="info-card"><div class="card-number">02</div><div class="card-title">Identität</div><p class="card-text">DE: Logo-System, Typografie, Farbwelt und Anwendungsregeln. EN: Logo system, typography, color palette and usage rules.</p></div>
+      <div class="info-card"><div class="card-number">03</div><div class="card-title">Guidelines</div><p class="card-text">DE: Brand Guidelines PDF, Social Templates und klare Regeln für alle Touchpoints. EN: Brand guidelines PDF, social templates and clear rules across touchpoints.</p></div>
+    </div>
+    <div class="image-feature-block">
+      <div class="image-feature-heading">Einblick</div>
+      <h2 class="image-feature-title">DE: Ein Markenbild, das Aufmerksamkeit und Vertrauen zugleich aufbaut. EN: A brand image that builds attention and trust at once.</h2>
+      <div class="image-feature-container aura-image-feature-container">
+        <img class="feature-img" src="bilder/Gemini_Generated_Image_e54jbke54jbke54j.png" alt="Nahaufnahme eines Auges mit warmem Lichtreflex">
+        <div class="image-feature-caption">
+          <h3>DE: Klarheit im Blick. Präsenz im Auftritt. EN: Clarity in view. Presence in the brand.</h3>
+          <p>DE: Nova Aura entwickelt Identitäten, die fokussiert, hochwertig und wiedererkennbar wirken. EN: Nova Aura develops identities that feel focused, premium and instantly recognizable.</p>
+        </div>
+      </div>
+    </div>
+    <div class="three-col" style="margin-top:4rem;">
+      <div class="info-card"><div class="card-number">Ergebnis</div><div class="card-title">Klarheit</div><p class="card-text">DE: Marken sprechen visuell und verbal aus einem Guss. EN: Brands speak visually and verbally from one source.</p></div>
+      <div class="info-card"><div class="card-number">Ergebnis</div><div class="card-title">Wiedererkennung</div><p class="card-text">DE: Die Marke bleibt über alle Kanäle hinweg konsistent und im Gedächtnis. EN: The brand stays consistent across all channels and in memory.</p></div>
+      <div class="info-card"><div class="card-number">Ergebnis</div><div class="card-title">Vertrauen</div><p class="card-text">DE: Ein sauberer Auftritt schafft Ruhe, Glaubwürdigkeit und Anziehung. EN: A clean presence creates calm, credibility and appeal.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section" id="section-production">
+  <div class="service-hero">
+    <div class="service-hero-bg"></div><div class="service-hero-grid"></div><div class="service-hero-overlay"></div>
+    <div class="service-hero-content">
+      <div class="service-tag">05 / Nova Production</div>
+      <h1 class="service-title">Content der <em>nächsten</em><br>Generation.</h1>
+      <p class="service-tagline">DE: KI-gestützte Produktionsverfahren für visuelle Assets, die modern wirken und sich sauber skalieren lassen. EN: Production accelerated by AI — built for premium assets that scale.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="three-col">
+      <div class="info-card"><div class="card-number">Was wir machen</div><div class="card-title">KI trifft Realität</div><p class="card-text">DE: Produktvisuals, virtuelle Sets, AI-generierte Environments und Szenarien. Wir verbinden Shooting und KI zu einem Produktionssystem, das aus einem Setup mehr macht. EN: Product visuals, virtual sets, AI-generated environments and scenarios. We combine shooting and AI into a production system that gets more from one setup.</p></div>
+      <div class="info-card"><div class="card-number">Unser Ansatz</div><div class="card-title">Vom Setup zur Asset-Bibliothek</div><p class="card-text">DE: Ein Drehtag wird zum Ausgangspunkt für viele Formate, Perspektiven und Nutzungen. Das Produkt bleibt real — der Kontext wird intelligent erweitert. EN: One shoot day becomes the starting point for many formats, perspectives and uses. The product stays real — the context expands intelligently.</p></div>
+      <div class="info-card"><div class="card-number">Warum Nova Production</div><div class="card-title">Studioqualität, smart</div><p class="card-text">DE: Der Workflow ist auf Geschwindigkeit, Varianz und Präzision gebaut. KI-Remixing, automatische Formatanpassung und Batch-Export arbeiten zusammen, damit der Output sauber und konsistent bleibt. EN: The workflow is built for speed, variety and precision. AI remixing, automatic format adaptation and batch export work together so the output stays clean and consistent.</p></div>
+    </div>
+    <div class="section-heading" style="margin-top:4rem;">
+      <div class="section-heading-label">Unser Tech-Stack</div>
+      <h2>Die Tools hinter<br><em>unserem Prozess.</em></h2>
+    </div>
+    <div class="three-col">
+      <div class="info-card"><div class="card-number">AI Video</div><div class="card-title">HeyGen / Runway / Descript</div><p class="card-text">DE: AI-Avatar-Videos, Hintergrund-Generierung und automatische Bearbeitung. EN: AI avatar videos, background generation and automated editing.</p></div>
+      <div class="info-card"><div class="card-number">Audio & Copy</div><div class="card-title">ElevenLabs / Whisper</div><p class="card-text">DE: Professional Voice-Over in DE/EN und saubere Transkription für Untertitel. EN: Professional voice-overs in DE/EN and clean transcription for subtitles.</p></div>
+      <div class="info-card"><div class="card-number">Image</div><div class="card-title">Midjourney / Flux / Opus Clip</div><p class="card-text">DE: Produkt-Mockups, Bildgenerierung und Short-Form-Variationen aus Long-Content. EN: Product mockups, image generation and short-form variations from long content.</p></div>
+    </div>
+    <div class="image-feature-block">
+      <div class="image-feature-heading">Einblick</div>
+      <h2 class="image-feature-title">DE: Ein Setup, viele Assets. EN: One setup, many assets.</h2>
+      <div class="image-feature-container production-image-feature-container">
+        <img class="feature-img" src="bilder/Gemini_Generated_Image_j4o6g2j4o6g2j4o6.png" alt="Production content setup mit Smartphone, Licht und Analytics-Overlays">
+        <div class="image-feature-caption">
+          <h3>DE: Produktion, die wie ein System wirkt. EN: Production that feels like a system.</h3>
+          <p>DE: Moderne Bildwelten, schnelle Varianten und klare Verwertbarkeit für Ads, Shop und Social. EN: Modern visuals, fast variations and clear usability for ads, shop and social.</p>
+        </div>
+      </div>
+    </div>
+    <div class="three-col" style="margin-top:4rem;">
+      <div class="info-card"><div class="card-number">Ergebnis</div><div class="card-title">Mehr Varianten</div><p class="card-text">DE: Ein Setup wird zum Ausgangspunkt für viele Assets und Formate. EN: One setup becomes the starting point for many assets and formats.</p></div>
+      <div class="info-card"><div class="card-number">Ergebnis</div><div class="card-title">Mehr Tempo</div><p class="card-text">DE: Schnellere Lieferung ohne Qualitätsverlust. EN: Faster delivery without quality loss.</p></div>
+      <div class="info-card"><div class="card-number">Ergebnis</div><div class="card-title">Mehr Nutzen</div><p class="card-text">DE: Assets, die in Ads, Shop und Social weiterverwendet werden. EN: Assets that can be reused in ads, shop and social.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section" id="section-contact">
+  <div class="content-section">
+    <div class="section-heading">
+      <div class="section-heading-label">Kontakt</div>
+      <h2>Lass uns deinen nächsten <em>Shift</em> planen.</h2>
+      <p>DE: Erzähl uns von deinem Projekt. Wir melden uns innerhalb von 24 Stunden. EN: Tell us about your next launch. We'll be in touch within 24 hours.</p>
+    </div>
+    <div class="contact-block">
+      <form class="contact-form">
+        <div class="form-row">
+          <label class="form-label" for="contact-name">NAME / BRAND</label>
+          <input class="form-input" id="contact-name" type="text" placeholder="Dein Name oder Markenname">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="contact-email">E-MAIL</label>
+          <input class="form-input" id="contact-email" type="email" placeholder="deine@email.de">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="contact-service">SERVICE</label>
+          <select class="form-select" id="contact-service">
+            <option value="">Welcher Service interessiert dich?</option>
+            <option>Nova Advertising — Kampagnen & Performance Ads</option>
+            <option>Nova Cast — UGC & AI Content Production</option>
+            <option>Nova Cast — Ad Management & Performance</option>
+            <option>Nova Web — Website / Shop / Landing Page</option>
+            <option>Nova Aura — Branding & Markenidentität</option>
+            <option>Nova Production — KI-Content & Produkt-Shooting</option>
+            <option>Full Package — Mehrere Services kombiniert</option>
+            <option>Ich bin mir noch nicht sicher</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="contact-budget">BUDGET</label>
+          <select class="form-select" id="contact-budget">
+            <option value="">Bitte auswählen</option>
+            <option>Bis €1.000 (Einmalprojekt)</option>
+            <option>€1.000 – €3.000</option>
+            <option>€3.000 – €10.000</option>
+            <option>€10.000+ / Monatlicher Retainer</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="contact-message">NACHRICHT</label>
+          <textarea class="form-textarea" id="contact-message" placeholder="Erzähl uns von deinem Projekt, deinen Zielen und deiner Brand. Je mehr Kontext du gibst, desto besser können wir uns vorbereiten."></textarea>
+        </div>
+      </form>
+      <button class="btn-primary" style="width:100%;padding:1.2rem;font-size:0.8rem;margin-top:1.5rem;">Nachricht senden →</button>
+      <p style="margin-top:2rem;font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.2em;color:var(--text-dim);">Oder direkt: <a href="mailto:hello@nova-shift.website" style="color:var(--gold);text-decoration:none;">hello@nova-shift.website</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://raw.githubusercontent.com/pietluke/Bilder-und-Videos/main/Nova_Shift_Logo__2_-removebg-preview.png" alt="Nova Shift">
+      <p class="footer-tagline">DE: Full-Service Creative Agency für Brands, die in der digitalen Welt nicht übersehen werden wollen. EN: Full-service creative agency for brands that refuse to be overlooked.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#" onclick="showSection('advertising'); return false;">Nova Advertising</a></li>
+        <li><a href="#" onclick="showSection('cast'); return false;">Nova Cast</a></li>
+        <li><a href="#" onclick="showSection('web'); return false;">Nova Web</a></li>
+        <li><a href="#" onclick="showSection('aura'); return false;">Nova Aura</a></li>
+        <li><a href="#" onclick="showSection('production'); return false;">Nova Production</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Unternehmen</div>
+      <ul class="footer-links">
+        <li><a href="#" onclick="showSection('about'); return false;">Über uns</a></li>
+        <li><a href="#">Referenzen</a></li>
+        <li><a href="#" onclick="showSection('contact'); return false;">Kontakt</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Rechtliches</div>
+      <ul class="footer-links">
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#">AGB</a></li>
+        <li><a href="#">Cookie-Einstellungen</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Nova Shift. All rights reserved.</span>
+    <span class="footer-copy">nova-shift.website</span>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('mousemove', (e) => {
+    const cursor = document.querySelector('.cursor');
+    const cursorRing = document.querySelector('.cursor-ring');
+    if (!cursor || !cursorRing) return;
+    cursor.style.left = e.clientX - 4 + 'px';
+    cursor.style.top = e.clientY - 4 + 'px';
+    cursorRing.style.left = e.clientX - 16 + 'px';
+    cursorRing.style.top = e.clientY - 16 + 'px';
+  });
+
+  document.addEventListener('mouseenter', () => {
+    const cursor = document.querySelector('.cursor');
+    const cursorRing = document.querySelector('.cursor-ring');
+    if (cursor) cursor.style.opacity = '1';
+    if (cursorRing) cursorRing.style.opacity = '0.5';
+  });
+
+  document.addEventListener('mouseleave', () => {
+    const cursor = document.querySelector('.cursor');
+    const cursorRing = document.querySelector('.cursor-ring');
+    if (cursor) cursor.style.opacity = '0';
+    if (cursorRing) cursorRing.style.opacity = '0';
+  });
+
+  window.showSection = function(id) {
+    document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
+    const target = document.getElementById('section-' + id);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+    document.querySelectorAll('.nav-links a[data-section]').forEach(link => {
+      link.classList.toggle('active', link.dataset.section === id);
+    });
+    const homeBtn = document.getElementById('home-nav-btn');
+    if (homeBtn) {
+      homeBtn.style.display = id === 'home' ? 'none' : 'flex';
+    }
+    const navLinks = document.getElementById('nav-links');
+    if (navLinks) navLinks.classList.remove('open');
+    return false;
+  };
+
+  window.toggleMobile = function() {
+    const navLinks = document.getElementById('nav-links');
+    if (navLinks) navLinks.classList.toggle('open');
+  };
+</script>
+</body>
+</html>
