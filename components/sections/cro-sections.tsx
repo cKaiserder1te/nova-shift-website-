@@ -70,7 +70,7 @@ export function CaseStudySection() {
                 <div className="mt-6 grid gap-3 sm:grid-cols-3">
                   {study.proofPoints.map((stat) => (
                     <div key={`${study.tag}-${stat.value}-${stat.label.de}`} className="rounded-[var(--radius-md)] border border-[var(--border)] bg-[rgba(255,255,255,0.02)] p-4 text-center">
-                      <p className="font-display text-2xl font-light tracking-[0.06em] text-[var(--gold-light)]">{stat.value}</p>
+                      <p className="font-display text-2xl font-light tracking-[0.06em] text-[var(--accent-light)]">{stat.value}</p>
                       <Caption as="p" className="mt-2">
                         {stat.label.de}
                       </Caption>
@@ -120,7 +120,7 @@ export function TestimonialSection() {
                   </div>
                 </blockquote>
                 <div className="mt-6 border-t border-[var(--border)] pt-5">
-                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.3em] text-[var(--gold-light)]">{testimonial.author}</p>
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.3em] text-[var(--accent-light)]">{testimonial.author}</p>
                   <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">{testimonial.role.de}</p>
                   <p className="text-sm leading-6 text-[var(--text-muted)]">{testimonial.role.en}</p>
                 </div>
@@ -156,7 +156,7 @@ export function FaqSection() {
                           {item.question.de}
                         </CardTitle>
                       </div>
-                      <span className="font-mono text-[0.85rem] uppercase tracking-[0.3em] text-[var(--gold-light)] transition-transform duration-300 group-open:rotate-45">
+                      <span className="font-mono text-[0.85rem] uppercase tracking-[0.3em] text-[var(--accent-light)] transition-transform duration-300 group-open:rotate-45">
                         +
                       </span>
                     </div>
@@ -195,7 +195,7 @@ export function FunnelSection() {
           {croContent.funnelSteps.map((step) => (
             <MotionSequenceItem key={step.step}>
                 <EnterpriseCard variant="lift" className="h-full p-6 md:p-8" itemScope itemType="https://schema.org/HowToStep">
-                <p className="font-mono text-[0.68rem] uppercase tracking-[0.35em] text-[var(--gold-light)]">{step.step}</p>
+                <p className="font-mono text-[0.68rem] uppercase tracking-[0.35em] text-[var(--accent-light)]">{step.step}</p>
                 <BilingualCard title={step.title} body={step.body} />
               </EnterpriseCard>
             </MotionSequenceItem>

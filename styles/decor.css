@@ -25,7 +25,7 @@ body::after {
   font-size: clamp(4rem, 16vw, 14rem);
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: rgba(211, 174, 88, 0.03);
+  color: color-mix(in srgb, var(--accent), transparent 94%);
   pointer-events: none;
   z-index: 0;
   white-space: nowrap;

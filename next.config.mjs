@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
+const isDev = process.env.NODE_ENV === 'development';
+
 const nextConfig = {
+  // Keep dev artifacts separate from production build output to avoid chunk mismatches.
+  distDir: isDev ? '.next-dev' : '.next',
   images: {
     // prefer modern formats where the platform can serve them
     formats: ['image/avif', 'image/webp'],

@@ -7,6 +7,7 @@ import { SiteHeader } from '@/components/layout/site-header';
 import { siteMeta } from '@/lib/site-content';
 import { JsonLd } from '@/components/seo/json-ld';
 import Script from 'next/script';
+import { LedBackground } from '@/components/LedBackground';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -92,10 +93,13 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           <link rel="stylesheet" href="/styles/decor.css" />
         </noscript>
       </head>
-      <body className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
-        <SiteHeader />
-        {children}
-        <SiteFooter />
+      <body className="relative isolate min-h-screen bg-[var(--bg)] text-[var(--text)]">
+        <LedBackground />
+        <div className="relative z-10">
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

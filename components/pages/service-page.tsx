@@ -75,7 +75,7 @@ export function ServicePage({ page }: ServicePageProps) {
             {page.usp.items.map((item) => (
               <MotionSequenceItem key={`${item.icon}-${item.title.de}`}>
                 <article className="bg-[var(--bg2)] p-6 md:p-8">
-                  <p className="font-mono text-[0.65rem] uppercase tracking-[0.35em] text-[var(--gold)]">{item.icon}</p>
+                  <p className="font-mono text-[0.65rem] uppercase tracking-[0.35em] text-[var(--accent-light)]">{item.icon}</p>
                   <MotionReveal kind="mask" viewportAmount={0.4}>
                     <h3 className="mt-5 text-2xl font-light tracking-[0.03em] text-[var(--text)]">{item.title.de}</h3>
                   </MotionReveal>

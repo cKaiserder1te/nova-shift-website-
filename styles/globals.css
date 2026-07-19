@@ -25,11 +25,13 @@
   h2,
   h3,
   h4 {
-    font-weight: 300;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
   }
 
   p {
-    color: var(--text-muted);
+    color: var(--text-secondary);
   }
 
   a {
@@ -51,70 +53,88 @@
     z-index: 10;
   }
 
+  .ds-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent calc(100% / 12 - 1px),
+        rgba(255, 255, 255, 0.02) calc(100% / 12 - 1px),
+        rgba(255, 255, 255, 0.02) calc(100% / 12)
+      );
+    opacity: 0.38;
+  }
+
   .ds-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    .ds-section {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  .ds-section-tight {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
   }
 
-  @media (min-width: 768px) {
-    .ds-section {
+  @media (min-width: 1024px) {
+    .ds-section-tight {
       padding-top: 4rem;
       padding-bottom: 4rem;
     }
   }
 
-  .ds-section-tight {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
-  @media (min-width: 768px) {
-    .ds-section-tight {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-  }
-
   .ds-eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     line-height: 1;
-    letter-spacing: 0.38em;
+    font-weight: 600;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: rgba(239, 207, 135, 0.84);
+    color: color-mix(in srgb, var(--accent), white 25%);
   }
 
   .ds-display-title {
     font-family: var(--font-display);
-    font-size: clamp(3.5rem, 8vw, 7.5rem);
-    font-weight: 300;
-    line-height: 0.9;
-    letter-spacing: 0.06em;
-    color: var(--text);
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
   }
 
   .ds-section-title {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 4.2vw, 4.75rem);
-    font-weight: 300;
+    font-size: clamp(2.2rem, 4.2vw, 4.2rem);
+    font-weight: 700;
     line-height: 0.95;
-    letter-spacing: 0.03em;
-    color: var(--text);
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
   }
 
   .ds-card-title {
     font-family: var(--font-display);
-    font-size: clamp(1.6rem, 2vw, 2.35rem);
-    font-weight: 300;
+    font-size: clamp(1.45rem, 2vw, 2rem);
+    font-weight: 700;
     line-height: 1;
-    letter-spacing: 0.02em;
-    color: var(--text);
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
   }
 
   .ds-body-copy {
     font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-    line-height: 1.85;
-    color: var(--text-muted);
+    line-height: 1.72;
+    color: var(--text-secondary);
   }
 
   .ds-body-copy--dense {
@@ -124,9 +144,10 @@
 
   .ds-caption {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.68rem;
     line-height: 1;
-    letter-spacing: 0.28em;
+    font-weight: 500;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--text-dim);
   }
@@ -134,10 +155,10 @@
   .ds-metric-value {
     font-family: var(--font-display);
     font-size: clamp(2.75rem, 5vw, 4.75rem);
-    font-weight: 300;
+    font-weight: 700;
     line-height: 0.92;
-    letter-spacing: 0.06em;
-    color: var(--gold-light);
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
   }
 
   .ds-container {
@@ -145,11 +166,11 @@
     margin-right: auto;
     width: 100%;
     max-width: 90rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     .ds-container {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
@@ -167,20 +188,20 @@
     position: relative;
     overflow: hidden;
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    background: var(--surface);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.03);
     box-shadow: var(--shadow-soft);
   }
 
   .ds-surface--glass {
-    background: rgba(18, 18, 18, 0.82);
-    -webkit-backdrop-filter: blur(18px);
-    backdrop-filter: blur(18px);
+    background: color-mix(in srgb, var(--surface), transparent 8%);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
   }
 
   @media (max-width: 767px) {
     .ds-surface--glass {
-      background: rgba(18, 18, 18, 0.94);
+      background: color-mix(in srgb, var(--surface), transparent 2%);
       -webkit-backdrop-filter: none;
       backdrop-filter: none;
     }
@@ -188,7 +209,7 @@
 
   .ds-surface--metric {
     text-align: center;
-    background: linear-gradient(180deg, rgba(24, 24, 24, 0.96), rgba(12, 12, 12, 0.94));
+    background: linear-gradient(180deg, color-mix(in srgb, var(--surface-2), white 4%), var(--surface));
   }
 
   .ds-surface--lift {
@@ -211,9 +232,9 @@
 
   @media (hover: hover) and (pointer: fine) {
     .ds-surface--lift:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-bright);
-      box-shadow: var(--shadow-lift);
+      transform: translateY(-6px) scale(1.01);
+      border-color: color-mix(in srgb, var(--accent), transparent 62%);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent), transparent 54%), 0 18px 44px var(--shadow), 0 0 40px color-mix(in srgb, var(--accent), transparent 82%);
     }
 
     .ds-surface--lift:hover::before {
@@ -271,26 +292,29 @@
     padding: 0.85rem 1.2rem;
     font-family: var(--font-mono);
     font-size: 0.68rem;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.28em;
     text-transform: uppercase;
     text-decoration: none;
   }
 
   .ds-button--primary {
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    color: var(--text-inverse);
-    box-shadow: var(--shadow-soft);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent), white 14%), var(--accent));
+    color: var(--text-primary);
+    box-shadow: 0 10px 32px color-mix(in srgb, var(--accent), transparent 74%);
+    transition: filter 200ms var(--ease-out), box-shadow 200ms var(--ease-out), transform 200ms var(--ease-out);
   }
 
   .ds-button--primary:hover {
-    background: linear-gradient(135deg, #f4dfaa, var(--gold-light));
+    filter: brightness(1.1);
+    box-shadow: 0 12px 40px color-mix(in srgb, var(--accent), transparent 64%);
+    transform: translateY(-1px);
   }
 
   .ds-button--secondary {
-    background: rgba(18, 18, 18, 0.86);
+    background: color-mix(in srgb, var(--surface), transparent 8%);
     border-color: var(--border);
-    color: var(--text);
+    color: var(--text-primary);
   }
 
   .ds-button--secondary:hover {
@@ -301,12 +325,12 @@
   .ds-button--ghost {
     background: transparent;
     border-color: var(--border);
-    color: var(--text-muted);
+    color: var(--text-secondary);
   }
 
   .ds-button--ghost:hover {
     border-color: var(--border-bright);
-    color: var(--text);
+    color: var(--text-primary);
   }
 
   .ds-button--pill {
@@ -314,18 +338,18 @@
     padding-inline: 1.05rem;
     background: rgba(255, 255, 255, 0.02);
     border-color: rgba(255, 255, 255, 0.08);
-    color: var(--text-muted);
+    color: var(--text-secondary);
   }
 
   .ds-button:focus-visible {
-    outline: 2px solid var(--gold-light);
+    outline: 2px solid color-mix(in srgb, var(--accent), white 18%);
     outline-offset: 4px;
   }
 
   .ds-button[aria-current='page'] {
-    border-color: var(--gold);
-    background: rgba(211, 174, 88, 0.08);
-    color: var(--gold-light);
+    border-color: color-mix(in srgb, var(--accent), transparent 54%);
+    background: color-mix(in srgb, var(--accent), transparent 90%);
+    color: color-mix(in srgb, var(--accent), white 24%);
   }
 
   .ds-disclosure > summary {
@@ -340,7 +364,7 @@
     display: grid;
     gap: 0.65rem;
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
   }
 
   .ds-input,
@@ -351,7 +375,7 @@
     border: 1px solid var(--border);
     background: rgba(8, 8, 8, 0.9);
     padding: 0.95rem 1rem;
-    color: var(--text);
+    color: var(--text-primary);
     outline: none;
   }
 
@@ -363,8 +387,8 @@
   .ds-input:focus,
   .ds-select:focus,
   .ds-textarea:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 4px rgba(211, 174, 88, 0.08);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent), transparent 88%);
   }
 
   .ds-divider {
@@ -401,11 +425,11 @@
     margin-right: auto;
     width: 100%;
     max-width: 90rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     .section-shell {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
@@ -444,7 +468,7 @@
     content: '';
     height: 1px;
     flex: 1;
-    background: var(--gold-dim);
+    background: color-mix(in srgb, var(--accent), transparent 36%);
   }
 
   .service-card-base {
@@ -466,15 +490,16 @@
     top: 0;
     height: 0;
     width: 2px;
-    background: var(--gold);
-    transition: height var(--motion-medium) var(--ease-out);
+    background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent), white 34%));
+    transition: height var(--motion-medium) var(--ease-out), box-shadow var(--motion-medium) var(--ease-out);
   }
 
   .service-card-base:hover {
-    background: var(--bg3);
+    background: var(--surface-2);
   }
 
   .service-card-base:hover::before {
     height: 100%;
+    box-shadow: 0 0 28px color-mix(in srgb, var(--accent), transparent 70%);
   }
 }

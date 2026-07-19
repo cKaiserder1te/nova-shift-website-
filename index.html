@@ -1,0 +1,267 @@
+0
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Shift - Motion Graphic Reference</title>
+  <style>
+    /* =========================================
+       1. DESIGN SYSTEM & VARIABLEN
+       ========================================= */
+    :root {
+      /* Base Colors für den Tech-Vibe */
+      --bg-color: #050508;
+      --text-color: #ffffff;
+      
+      /* Dynamische LED Variablen (werden via JS getauscht) */
+      --led-color: #00e5ff; /* Cyan Default */
+      --led-glow: rgba(0, 229, 255, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow-x: hidden;
+      /* Subtiler Grid-Hintergrund für die Tiefe */
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      transition: background-color 0.5s ease;
+    }
+
+    /* =========================================
+       2. SVG LED HINTERGRUND
+       ========================================= */
+    .led-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* Blockiert keine Klicks! */
+      z-index: -1;
+      display: flex;
+      justify-content: center;
+      /* Leichtes Dimming des Hintergrunds für besseren Glow-Kontrast */
+      background: radial-gradient(circle at center, transparent 0%, #050508 100%);
+    }
+
+    .led-svg {
+      width: 100%;
+      max-width: 800px; /* Begrenzt die Schwünge auf Desktop */
+      height: 100%;
+      overflow: visible;
+    }
+
+    .led-path {
+      fill: none;
+      stroke: var(--led-color);
+      stroke-width: 3px;
+      stroke-linecap: round;
+      
+      /* Der Signature Motion-Graphic Glow: ein harter innerer und weicher äußerer Schatten */
+      filter: drop-shadow(0 0 8px var(--led-glow)) drop-shadow(0 0 24px var(--led-color));
+      
+      /* Weiche Transition beim Farbwechsel */
+      transition: stroke 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: stroke-dashoffset, stroke, filter;
+    }
+
+    /* =========================================
+       3. UI & CONTENT LAYOUT
+       ========================================= */
+    .nav-simulator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      z-index: 100;
+      background: rgba(5, 5, 8, 0.6);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    button {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .content-layer {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .section {
+      height: 100vh;
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 40px;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      margin-bottom: 20px;
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .align-right { align-items: flex-end; text-align: right; }
+    .align-left { align-items: flex-start; text-align: left; }
+    
+  </style>
+</head>
+<body>
+
+  <!-- =========================================
+       DIE FIXIERTE HINTERGRUND EBENE
+       ========================================= -->
+  <div class="led-background">
+    <svg class="led-svg" preserveAspectRatio="none" viewBox="0 0 100 1000">
+      <!-- Ein eleganter, aufwändiger Bézier-Kurven Pfad für organische Tech-Vibes -->
+      <path class="led-path" d="
+        M 50,-50 
+        C 90,100  10,200  50,300 
+        C 90,400  10,500  50,600 
+        C 90,700  10,800  50,900 
+        C 90,1000 10,1100 50,1150
+      " />
+    </svg>
+  </div>
+
+  <!-- =========================================
+       SIMULIERTE NAVIGATION (Für den Farbwechsel)
+       ========================================= -->
+  <nav class="nav-simulator">
+    <button onclick="changeRoute('home')">Home (Cyan)</button>
+    <button onclick="changeRoute('about')">About (Magenta)</button>
+    <button onclick="changeRoute('services')">Services (Amber)</button>
+  </nav>
+
+  <!-- =========================================
+       SCROLLBARER CONTENT
+       ========================================= -->
+  <div class="content-layer">
+    <div class="section align-left">
+      <h1>Nova Shift.</h1>
+      <p>Scrolle nach unten, um zu sehen, wie die Linie dem Rhythmus des Inhalts folgt. Klicke oben, um die Seiten-Farben zu simulieren.</p>
+    </div>
+    
+    <div class="section align-right">
+      <h1>Fluid Motion.</h1>
+      <p>Die Linie verläuft exakt entlang der berechneten Pfadlänge. Kein Ruckeln, gebunden an den Scroll-Vektor des Browsers.</p>
+    </div>
+    
+    <div class="section align-left">
+      <h1>Immersive Tech.</h1>
+      <p>Der doppelte Drop-Shadow erzeugt die Illusion eines lichtemittierenden Plasmas, das durch den Bildschirm fließt.</p>
+    </div>
+
+    <div class="section align-right">
+      <h1>The End.</h1>
+      <p>Du hast das Ende der Seite erreicht. Die Linie ist nun vollständig gezeichnet.</p>
+    </div>
+  </div>
+
+  <!-- =========================================
+       CORE LOGIC
+       ========================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const path = document.querySelector('.led-path');
+      
+      // 1. Setup: Berechne exakte Länge des geschwungenen Pfads
+      const pathLength = path.getTotalLength();
+      
+      // Bereite SVG für die Drawing-Animation vor
+      path.style.strokeDasharray = pathLength + ' ' + pathLength;
+      path.style.strokeDashoffset = pathLength;
+
+      // 2. Scroll Animation Loop (Performance optimiert)
+      let isTicking = false;
+
+      const updateScroll = () => {
+        // Berechne max scrollbare Höhe
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPosition = window.scrollY;
+        
+        // Vermeide Division durch 0 bei kurzen Seiten
+        const scrollPercentage = scrollHeight > 0 ? (scrollPosition / scrollHeight) : 0;
+        
+        // Easing-Trick: Linie minimal überziehen lassen am Ende
+        const drawLength = pathLength * scrollPercentage;
+        path.style.strokeDashoffset = pathLength - drawLength;
+        
+        isTicking = false;
+      };
+
+      window.addEventListener("scroll", () => {
+        if (!isTicking) {
+          window.requestAnimationFrame(updateScroll);
+          isTicking = true;
+        }
+      }, { passive: true }); // passive: true sorgt für flüssigeres Scrollen
+
+      // Initialer Call, falls User beim Neuladen schon gescrollt hat
+      updateScroll();
+    });
+
+    // 3. Routen-Wechsel Simulator (Demonstriert den State-Wechsel)
+    const routes = {
+      'home': { color: '#00e5ff', glow: 'rgba(0, 229, 255, 0.6)' },
+      'about': { color: '#ff0055', glow: 'rgba(255, 0, 85, 0.6)' },
+      'services': { color: '#ffaa00', glow: 'rgba(255, 170, 0, 0.6)' }
+    };
+
+    function changeRoute(routeId) {
+      const config = routes[routeId];
+      const root = document.documentElement;
+      
+      // Update CSS Variablen -> Löst flüssige CSS Transition aus
+      root.style.setProperty('--led-color', config.color);
+      root.style.setProperty('--led-glow', config.glow);
+    }
+  </script>
+</body>
+</html>

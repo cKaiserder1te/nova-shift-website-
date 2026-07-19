@@ -1,29 +1,47 @@
 :root {
-  --gold: #d3ae58;
-  --gold-light: #efcf87;
-  --gold-dim: #9e7a30;
-  --bg: #050505;
-  --bg2: #0d0d0d;
-  --bg3: #141414;
-  --surface: #181818;
-  --surface-strong: #202020;
-  --border: rgba(211, 174, 88, 0.16);
-  --border-bright: rgba(211, 174, 88, 0.34);
-  --text: #f5efe4;
-  --text-muted: #bcb4a3;
-  --text-dim: #807867;
-  --text-inverse: #090909;
-  --font-display: 'Cormorant Garamond', serif;
-  --font-ui: 'Rajdhani', sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  --nova-web: #2e6bff;
+  --nova-aura: #7b3dff;
+  --nova-cast: #f5a623;
+  --nova-production: #00e58b;
+  --nova-advertising: #ff3b3b;
+
+  --background: #050505;
+  --surface: #0c0c0f;
+  --surface-2: #121216;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-bright: rgba(255, 255, 255, 0.16);
+
+  --text-primary: #ffffff;
+  --text-secondary: #b4b4b4;
+  --text-dim: #8b8b93;
+  --text-inverse: #050505;
+
+  --shadow: rgba(0, 0, 0, 0.55);
+
+  --font-display: 'Inter', sans-serif;
+  --font-ui: 'Inter', sans-serif;
+  --font-mono: 'Inter', sans-serif;
+
+  --accent: var(--nova-web);
+  --accent-light: #69a4ff;
+  --accent-glow: rgba(46, 107, 255, 0.45);
+
+  --bg: var(--background);
+  --bg2: color-mix(in srgb, var(--surface), transparent 18%);
+  --bg3: color-mix(in srgb, var(--surface-2), transparent 10%);
+  --text: var(--text-primary);
+  --text-muted: var(--text-secondary);
+  --gold: var(--accent);
+  --gold-light: var(--accent-light);
+  --gold-dim: color-mix(in srgb, var(--accent), black 30%);
   --radius-sm: 0.875rem;
   --radius-md: 1.125rem;
   --radius-lg: 1.5rem;
   --radius-xl: 2rem;
   --radius-pill: 9999px;
-  --shadow-soft: 0 0 0 1px rgba(211, 174, 88, 0.12), 0 20px 60px rgba(0, 0, 0, 0.28);
-  --shadow-lift: 0 0 0 1px rgba(211, 174, 88, 0.18), 0 28px 90px rgba(0, 0, 0, 0.42);
-  --shadow-hero: 0 0 0 1px rgba(211, 174, 88, 0.2), 0 40px 120px rgba(0, 0, 0, 0.48);
+  --shadow-soft: 0 0 0 1px var(--border), 0 20px 60px var(--shadow);
+  --shadow-lift: 0 0 0 1px color-mix(in srgb, var(--accent), transparent 58%), 0 28px 90px var(--shadow);
+  --shadow-hero: 0 0 0 1px color-mix(in srgb, var(--accent), transparent 50%), 0 40px 120px var(--shadow);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-strong: cubic-bezier(0.19, 1, 0.22, 1);
   --motion-fast: 160ms;
@@ -36,17 +54,17 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--bg);
+  background: var(--background);
   color-scheme: dark;
 }
 
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(211, 174, 88, 0.12), transparent 34%),
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.04), transparent 28%),
-    linear-gradient(180deg, #070707 0%, #050505 44%, #030303 100%);
-  color: var(--text);
+    radial-gradient(circle at 12% -5%, color-mix(in srgb, var(--accent), transparent 86%), transparent 34%),
+    radial-gradient(circle at 88% 0%, rgba(255, 255, 255, 0.04), transparent 32%),
+    linear-gradient(180deg, #08090f 0%, var(--background) 44%, #040405 100%);
+  color: var(--text-primary);
   cursor: auto;
   text-rendering: optimizeLegibility;
 }
@@ -56,10 +74,7 @@ body {
 *,
 *::before,
 *::after {
-  animation-duration: 0.01ms !important;
-  animation-iteration-count: 1 !important;
-  transition-duration: 0.01ms !important;
-  scroll-behavior: auto !important;
+  box-sizing: border-box;
 }
 
 body::before,
