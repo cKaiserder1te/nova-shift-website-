@@ -810,7 +810,7 @@ p EN: Tell us about your next launch. We'll be in touch within 24 hours.
 ### CTA
 ```
 Button: Nachricht senden →
-Direct: Oder direkt: hello@nova-shift.website
+Direct: Oder direkt: nova.shift.wk@gmail.com
 Response-Time: Antwort innerhalb von 24h (werktags)
 ```
 
@@ -1009,7 +1009,7 @@ Verfügbarkeit: "Aktuell verfügbar"  /  "Begrenzte Kapazität"
 - [ ] Schema.org JSON-LD aus Abschnitt 3 eingebaut
 - [ ] Kontaktformular mit Budget-Feld erweitert
 - [ ] Service-Optionen im Formular auf alle Packages aktualisiert
-- [ ] E-Mail auf hello@nova-shift.website (statt Gmail) sobald eingerichtet
+- [ ] E-Mail auf nova.shift.wk@gmail.com (statt Gmail) sobald eingerichtet
 
 ### Kann-Anforderungen (Nice to have)
 - [ ] Preistabelle für Nova Cast (Abschnitt 13 D)

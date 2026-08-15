@@ -11,7 +11,7 @@ export const companyEntity = {
   name: 'Nova Shift',
   url: siteMeta.url,
   foundingDate: '2025',
-  email: 'hello@nova-shift.website',
+  email: 'nova.shift.wk@gmail.com',
   availableLanguages: ['de', 'en'] as const,
   description: siteMeta.description,
 } as const;
@@ -784,7 +784,7 @@ export const servicePages: Record<string, PageContent> = {
       label: 'Kontakt',
       title: { de: 'Lass uns deinen nächsten Shift planen', en: 'Let\'s plan your next shift' },
       items: [
-        { icon: 'MAIL', title: { de: 'hello@nova-shift.website', en: 'hello@nova-shift.website' }, body: { de: 'Direkter Kontakt für Anfragen.', en: 'Direct contact for inquiries.' } },
+        { icon: 'MAIL', title: { de: 'nova.shift.wk@gmail.com', en: 'nova.shift.wk@gmail.com' }, body: { de: 'Direkter Kontakt für Anfragen.', en: 'Direct contact for inquiries.' } },
         { icon: 'TIME', title: { de: '< 24h', en: '< 24h' }, body: { de: 'Antwortzeit werktags.', en: 'Weekday response time.' } },
         { icon: 'LANG', title: { de: 'DE / EN', en: 'DE / EN' }, body: { de: 'Bilingual by design.', en: 'Bilingual by design.' } },
         { icon: 'FORM', title: { de: 'Formular', en: 'Form' }, body: { de: 'Service- und Budget-Auswahl inklusive.', en: 'Service and budget selection included.' } },
