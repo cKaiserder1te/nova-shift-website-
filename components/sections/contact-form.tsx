@@ -1,19 +1,10 @@
 "use client";
 
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, type FormEvent } from 'react';
 import { companyEntity } from '@/lib/site-content';
 import { EnterpriseButton } from '@/components/ui/enterprise-button';
 import { MotionReveal, MotionSequence, MotionSequenceItem } from '@/components/motion/motion-system';
-
-const services = [
-  { id: 'advertising', label: 'Advertising', desc: 'Paid Social, Search & Scaling' },
-  { id: 'cast', label: 'Cast & UGC', desc: 'Creators & Performance Content' },
-  { id: 'web', label: 'Web & CRO', desc: 'High-Converting Landingpages' },
-  { id: 'aura', label: 'Aura', desc: 'Branding & Identity System' },
-  { id: 'production', label: 'Production', desc: 'High-End Video & Photo' },
-];
-
-const budgets = ['< 5k', '5k - 15k', '15k - 50k', '50k+'];
+import { contactBudgets, contactServices } from '@/lib/contact-form';
 
 export function ContactForm() {
   const [step, setStep] = useState(1);
@@ -23,7 +14,10 @@ export function ContactForm() {
     name: '',
     email: '',
     project: '',
+    website: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleNext = useCallback(() => setStep((prev) => Math.min(prev + 1, 4)), [setStep]);
   const handleBack = useCallback(() => setStep((prev) => Math.max(prev - 1, 1)), [setStep]);
@@ -38,6 +32,42 @@ export function ContactForm() {
   }, [setField, handleNext]);
 
   const progressPercent = useMemo(() => `${(step / 4) * 100}%`, [step]);
+
+  const handleSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (step !== 3 || isSubmitting) {
+      return;
+    }
+
+    setSubmitError('');
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          sourcePath: '/contact',
+        }),
+      });
+
+      const result = await response.json().catch(() => null) as { error?: string } | null;
+
+      if (!response.ok) {
+        throw new Error(result?.error || 'Die Anfrage konnte nicht gesendet werden.');
+      }
+
+      setStep(4);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : 'Die Anfrage konnte nicht gesendet werden.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  }, [formData, isSubmitting, step]);
 
   return (
     <div className="ds-surface ds-surface--glass p-6 md:p-8 relative overflow-hidden" itemScope itemType="https://schema.org/ContactPoint">
@@ -74,12 +104,12 @@ export function ContactForm() {
         </MotionSequenceItem>
       </MotionSequence>
 
-      <form onSubmit={(e) => { e.preventDefault(); handleNext(); }} aria-labelledby="contact-form-title" className="min-h-[400px] flex flex-col">
+      <form onSubmit={handleSubmit} aria-labelledby="contact-form-title" className="min-h-[400px] flex flex-col">
         {step === 1 ? (
             <div className="flex-1">
               <h3 className="text-xl font-medium mb-6 text-ds-content">Welcher Bereich interessiert dich primär?</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {services.map((svc) => (
+                {contactServices.map((svc) => (
                   <button
                     key={svc.id}
                     type="button"
@@ -102,7 +132,7 @@ export function ContactForm() {
             <div className="flex-1">
               <h3 className="text-xl font-medium mb-6 text-ds-content">Wie sieht der budgetäre Rahmen aus?</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {budgets.map((budget) => (
+                {contactBudgets.map((budget) => (
                   <button
                     key={budget}
                     type="button"
@@ -159,10 +189,25 @@ export function ContactForm() {
                   placeholder="Was sind die Ziele? Was stört gerade am meisten?" 
                 />
               </label>
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={(e) => setField('website', e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="sr-only"
+                />
               <div className="flex flex-col gap-4">
-                <EnterpriseButton type="submit" variant="primary" className="w-fit">
-                  Anfrage senden
+                <EnterpriseButton type="submit" variant="primary" className="w-fit" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sende…' : 'Anfrage senden'}
                 </EnterpriseButton>
+                {submitError ? (
+                  <p className="text-sm text-red-300" role="alert" aria-live="polite">
+                    {submitError}
+                  </p>
+                ) : null}
                 
                 {/* Trust Badges */}
                 <div className="flex gap-4 mt-2">
@@ -196,7 +241,7 @@ export function ContactForm() {
         {/* Navigation bottom bar */}
         {step > 1 && step < 4 && (
            <div className="mt-8 pt-6 border-t border-ds-border flex justify-between">
-             <button type="button" onClick={handleBack} className="text-sm text-ds-content-subtle hover:text-ds-content transition-colors">
+             <button type="button" onClick={handleBack} disabled={isSubmitting} className="text-sm text-ds-content-subtle hover:text-ds-content transition-colors disabled:opacity-50">
                ← Zurück
              </button>
              <span className="text-sm text-ds-content-subtle">
