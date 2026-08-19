@@ -70,11 +70,17 @@ export async function POST(request: Request) {
       .single();
 
     if (error || !data) {
+      if (error) {
+        console.error('Supabase insert failed:', error);
+      } else {
+        console.error('Supabase insert failed without error object.');
+      }
       return NextResponse.json({ error: 'Die Anfrage konnte nicht gespeichert werden.' }, { status: 500 });
     }
 
     requestId = String(data.id);
-  } catch {
+  } catch (insertException) {
+    console.error('Unexpected exception during Supabase insert:', insertException);
     return NextResponse.json({ error: 'Die Anfrage konnte nicht gespeichert werden.' }, { status: 500 });
   }
 
