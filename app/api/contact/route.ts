@@ -1,170 +1,134 @@
-import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { companyEntity } from '@/lib/site-content';
-import {
-  contactBudgetLabels,
-  contactServiceLabels,
-  escapeHtml,
-  parseContactSubmission,
-  type ContactSubmissionRecord,
-} from '@/lib/contact-form';
+import { Resend } from 'resend';
+import { getSupabaseAdmin } from '@/lib/supabase-admin';
 
-const supabaseUrl = process.env.SUPABASE_URL?.replace(/\/$/, '');
-const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const resendApiKey = process.env.RESEND_API_KEY;
-const resendFrom = process.env.RESEND_FROM_EMAIL ?? 'Nova Shift <hello@nova-shift.website>';
-const recipientEmail = process.env.CONTACT_TO_EMAIL ?? companyEntity.email;
+export const runtime = 'nodejs';
 
-function isConfigured() {
-  return Boolean(supabaseUrl && supabaseServiceRoleKey && resendApiKey);
-}
+const allowedServices = ['advertising', 'cast', 'web', 'aura', 'production'] as const;
+const allowedBudgets = ['< 5k', '5k - 15k', '15k - 50k', '50k+'] as const;
 
-function buildEmailText(record: ContactSubmissionRecord) {
-  return [
-    'Neue Kontaktanfrage über nova-shift.website',
-    '',
-    `Name: ${record.name}`,
-    `E-Mail: ${record.email}`,
-    `Service: ${contactServiceLabels[record.service] ?? record.service}`,
-    `Budget: ${contactBudgetLabels[record.budget] ?? record.budget}`,
-    `Quelle: ${record.source_path || '/contact'}`,
-    `Status: ${record.status}`,
-    record.project ? `Briefing: ${record.project}` : 'Briefing: -',
-    record.user_agent ? `User-Agent: ${record.user_agent}` : 'User-Agent: -',
-  ].join('\n');
-}
+type ContactPayload = {
+  service?: unknown;
+  budget?: unknown;
+  name?: unknown;
+  email?: unknown;
+  project?: unknown;
+  privacyAccepted?: unknown;
+  website?: unknown;
+};
 
-function buildEmailHtml(record: ContactSubmissionRecord) {
-  const project = record.project ? escapeHtml(record.project).replaceAll('\n', '<br />') : '-';
+const isAllowedValue = <T extends readonly string[]>(value: unknown, allowed: T): value is T[number] =>
+  typeof value === 'string' && allowed.includes(value);
 
-  return `
-    <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #111827;">
-      <h2 style="margin: 0 0 16px;">Neue Kontaktanfrage</h2>
-      <p style="margin: 0 0 8px;"><strong>Name:</strong> ${escapeHtml(record.name)}</p>
-      <p style="margin: 0 0 8px;"><strong>E-Mail:</strong> ${escapeHtml(record.email)}</p>
-      <p style="margin: 0 0 8px;"><strong>Service:</strong> ${escapeHtml(contactServiceLabels[record.service] ?? record.service)}</p>
-      <p style="margin: 0 0 8px;"><strong>Budget:</strong> ${escapeHtml(contactBudgetLabels[record.budget] ?? record.budget)}</p>
-      <p style="margin: 0 0 8px;"><strong>Quelle:</strong> ${escapeHtml(record.source_path || '/contact')}</p>
-      <p style="margin: 0 0 8px;"><strong>Briefing:</strong><br />${project}</p>
-    </div>
-  `;
-}
-
-async function insertSubmission(record: ContactSubmissionRecord) {
-  const response = await fetch(`${supabaseUrl}/rest/v1/contact_submissions`, {
-    method: 'POST',
-    headers: {
-      apikey: supabaseServiceRoleKey as string,
-      Authorization: `Bearer ${supabaseServiceRoleKey}`,
-      'Content-Type': 'application/json',
-      Prefer: 'return=minimal',
-    },
-    body: JSON.stringify(record),
-  });
-
-  if (!response.ok) {
-    const details = await response.text();
-    throw new Error(details || 'Supabase insert failed');
-  }
-}
-
-async function updateSubmissionStatus(id: string, patch: Partial<ContactSubmissionRecord>) {
-  await fetch(`${supabaseUrl}/rest/v1/contact_submissions?id=eq.${encodeURIComponent(id)}`, {
-    method: 'PATCH',
-    headers: {
-      apikey: supabaseServiceRoleKey as string,
-      Authorization: `Bearer ${supabaseServiceRoleKey}`,
-      'Content-Type': 'application/json',
-      Prefer: 'return=minimal',
-    },
-    body: JSON.stringify(patch),
-  });
-}
+const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
 export async function POST(request: Request) {
-  const parsed = parseContactSubmission(await request.json().catch(() => null));
-
-  if (!parsed.ok) {
-    return NextResponse.json({ error: parsed.errors[0] ?? 'Ungültige Anfrage.' }, { status: 400 });
-  }
-
-  if (!isConfigured()) {
-    return NextResponse.json(
-      { error: 'Kontaktformular ist serverseitig nicht konfiguriert.' },
-      { status: 500 },
-    );
-  }
-
-  const requestHeaders = await headers();
-  const now = new Date().toISOString();
-  const submissionId = crypto.randomUUID();
-  const record: ContactSubmissionRecord = {
-    id: submissionId,
-    service: parsed.data.service,
-    budget: parsed.data.budget,
-    name: parsed.data.name,
-    email: parsed.data.email,
-    project: parsed.data.project,
-    source_path: parsed.data.sourcePath || '/contact',
-    status: 'received',
-    user_agent: requestHeaders.get('user-agent'),
-    email_sent_at: null,
-    email_error: null,
-    created_at: now,
-  };
+  let payload: ContactPayload;
 
   try {
-    await insertSubmission(record);
-  } catch (error) {
-    return NextResponse.json(
-      {
-        error: 'Die Anfrage konnte nicht gespeichert werden.',
-        details: error instanceof Error ? error.message : 'Unknown error',
-      },
-      { status: 502 },
-    );
+    payload = await request.json();
+  } catch {
+    return NextResponse.json({ error: 'Ungültige Anfrage.' }, { status: 400 });
   }
 
-  const emailPayload = {
-    from: resendFrom,
-    to: [recipientEmail],
-    reply_to: parsed.data.email,
-    subject: `Neue Kontaktanfrage: ${contactServiceLabels[parsed.data.service] ?? parsed.data.service} / ${parsed.data.name}`,
-    text: buildEmailText(record),
-    html: buildEmailHtml(record),
-  };
+  const service = payload.service;
+  const budget = payload.budget;
+  const name = typeof payload.name === 'string' ? payload.name.trim() : '';
+  const email = typeof payload.email === 'string' ? payload.email.trim() : '';
+  const project = typeof payload.project === 'string' ? payload.project.trim() : '';
+  const website = typeof payload.website === 'string' ? payload.website.trim() : '';
 
-  const emailResponse = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${resendApiKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(emailPayload),
-  });
+  if (
+    website ||
+    !isAllowedValue(service, allowedServices) ||
+    !isAllowedValue(budget, allowedBudgets) ||
+    !name || name.length > 100 ||
+    !email || email.length > 254 || !isEmail(email) ||
+    project.length > 5000 ||
+    payload.privacyAccepted !== true
+  ) {
+    return NextResponse.json({ error: 'Bitte überprüfe deine Eingaben.' }, { status: 400 });
+  }
 
-  if (emailResponse.ok) {
-    await updateSubmissionStatus(submissionId, {
-      status: 'sent',
-      email_sent_at: new Date().toISOString(),
-      email_error: null,
+  let supabase;
+  let requestId: string;
+
+  try {
+    supabase = getSupabaseAdmin();
+    const { data, error } = await supabase
+      .from('contact_requests')
+      .insert({
+        service,
+        budget,
+        name,
+        email,
+        project,
+        privacy_accepted: true,
+        email_status: 'pending',
+      })
+      .select('id')
+      .single();
+
+    if (error || !data) {
+      return NextResponse.json({ error: 'Die Anfrage konnte nicht gespeichert werden.' }, { status: 500 });
+    }
+
+    requestId = String(data.id);
+  } catch {
+    return NextResponse.json({ error: 'Die Anfrage konnte nicht gespeichert werden.' }, { status: 500 });
+  }
+
+  const apiKey = process.env.RESEND_API_KEY;
+  const contactEmail = process.env.CONTACT_EMAIL;
+  const fromEmail = process.env.CONTACT_FROM_EMAIL;
+
+  if (!apiKey || !contactEmail || !fromEmail) {
+    await supabase
+      .from('contact_requests')
+      .update({ email_status: 'failed' })
+      .eq('id', requestId);
+
+    return NextResponse.json({ error: 'Der E-Mail-Versand ist derzeit nicht verfügbar.' }, { status: 500 });
+  }
+
+  try {
+    const resend = new Resend(apiKey);
+    const { data, error } = await resend.emails.send({
+      from: fromEmail,
+      to: contactEmail,
+      replyTo: email,
+      subject: `Neue Projektanfrage: ${name}`,
+      text: [
+        `Name: ${name}`,
+        `E-Mail: ${email}`,
+        `Service: ${service}`,
+        `Budget: ${budget}`,
+        '',
+        'Briefing:',
+        project || 'Kein Briefing angegeben.',
+      ].join('\n'),
     });
 
-    return NextResponse.json({ ok: true, submissionId }, { status: 200 });
+    if (error || !data?.id) {
+      throw new Error('Resend did not return an email id.');
+    }
+
+    const { error: updateError } = await supabase
+      .from('contact_requests')
+      .update({ email_status: 'sent', resend_email_id: data.id })
+      .eq('id', requestId);
+
+    if (updateError) {
+      return NextResponse.json({ error: 'Die Anfrage wurde gesendet, konnte aber nicht abschließend verarbeitet werden.' }, { status: 500 });
+    }
+
+    return NextResponse.json({ success: true });
+  } catch {
+    await supabase
+      .from('contact_requests')
+      .update({ email_status: 'failed' })
+      .eq('id', requestId);
+
+    return NextResponse.json({ error: 'Die Anfrage konnte nicht per E-Mail versendet werden.' }, { status: 502 });
   }
-
-  const emailError = await emailResponse.text();
-  await updateSubmissionStatus(submissionId, {
-    status: 'email_failed',
-    email_error: emailError || 'Resend request failed',
-  });
-
-  return NextResponse.json(
-    {
-      ok: true,
-      submissionId,
-      warning: 'Die Anfrage wurde gespeichert, aber die Mail konnte nicht ausgeliefert werden.',
-    },
-    { status: 200 },
-  );
 }
