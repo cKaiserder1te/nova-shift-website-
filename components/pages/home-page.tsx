@@ -36,9 +36,9 @@ export function HomePage() {
         <Container>
           <div className="ds-stack" style={{ ['--stack-gap' as string]: '1rem' }}>
             <p className="ds-eyebrow">Nova Shift / Services</p>
-            <h2 className="ds-section-title max-w-4xl whitespace-pre-line">Sechs Disziplinen. Ein System.</h2>
+            <h2 className="ds-section-title max-w-4xl whitespace-pre-line">Fünf Disziplinen. Ein System.</h2>
             <p className="ds-body-copy max-w-3xl whitespace-pre-line">
-              Die Website ist als skalierbares Content-System aufgebaut. Jede Disziplin bleibt eigenständig, fügt sich aber in eine gemeinsame visuelle Sprache ein.
+              Jede Disziplin ist eigenständig – gemeinsam bilden sie ein skalierbares Wachstumssystem.
             </p>
           </div>
         </Container>

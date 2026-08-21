@@ -2,7 +2,6 @@ import type { LocaleCopy } from '@/lib/types';
 import { Container } from '@/components/ui/container';
 import { EnterpriseButtonLink } from '@/components/ui/enterprise-button';
 import { BodyCopy, DisplayTitle, Eyebrow } from '@/components/ui/typography';
-import { ShortAnswer } from '@/components/seo/short-answer';
 import { EnterpriseCard } from '@/components/ui/enterprise-card';
 import { MotionReveal, MotionSequence, MotionSequenceItem, MotionSection } from '@/components/motion/motion-system';
 
@@ -32,9 +31,6 @@ export function ServiceHero({ label, title, tagline }: ServiceHeroProps) {
               <BodyCopy className="max-w-2xl whitespace-pre-line text-[1.02rem] md:text-lg">{tagline.de}</BodyCopy>
             </MotionSequenceItem>
             <MotionSequenceItem>
-              <ShortAnswer text={tagline.de} />
-            </MotionSequenceItem>
-            <MotionSequenceItem>
               <div className="ds-cluster pt-2">
                 <EnterpriseButtonLink href="/contact" variant="primary">
                   Projekt starten
@@ -56,13 +52,9 @@ export function ServiceHero({ label, title, tagline }: ServiceHeroProps) {
 
           <MotionReveal kind="mask" delay={0.12}>
             <EnterpriseCard variant="glass" className="p-6 md:p-8">
-              <Eyebrow as="p">DE</Eyebrow>
+              <Eyebrow as="p">Focus</Eyebrow>
               <BodyCopy className="mt-4 whitespace-pre-line">{title.de}</BodyCopy>
-              <Eyebrow as="p" className="mt-8">
-                EN
-              </Eyebrow>
-              <BodyCopy className="mt-4 whitespace-pre-line">{title.en}</BodyCopy>
-              <div className="mt-8 border-t border-[var(--border)] pt-6">
+              <div className="mt-6 border-t border-[var(--border)] pt-6">
                 <BodyCopy className="ds-body-copy--dense whitespace-pre-line">{tagline.de}</BodyCopy>
               </div>
             </EnterpriseCard>

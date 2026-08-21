@@ -12,7 +12,7 @@ export function SiteFooter() {
           <div className="lg:col-span-2">
             <p className="font-display text-3xl font-semibold tracking-[0.08em] text-[var(--text-primary)]">NOVA SHIFT</p>
             <p className="mt-4 max-w-xl text-sm leading-7 text-[var(--text-muted)]">
-              Nova Shift ist die Full-Service Creative Agency für Performance-Marketing, User Generated Content (UGC), hochkonvertierendes Webdesign und ganzheitliches Branding. Entwickelt für ambitionierte D2C Brands und skalierende E-Commerce Unternehmen.
+              Nova Shift verbindet Performance, Content und Branding in einem System für D2C- und E-Commerce-Brands.
             </p>
           </div>
           <div>

@@ -1,9 +1,9 @@
 import type { CaseStudy, FaqItem, FunnelStep, LocaleCopy, PageContent, ServiceCard, StatItem, Testimonial } from '@/lib/types';
 
 export const siteMeta = {
-  title: 'Nova Shift – Full-Service Creative Agency für Werbung, UGC, Web & Branding',
+  title: 'Nova Shift – Creative Agency für Performance-Brands',
   description:
-    'Nova Shift ist eine Full-Service Creative Agency (DE/EN) für D2C- und E-Commerce-Brands. Leistungen: Performance Ads & Kampagnen, UGC & AI Content, Webdesign, Branding und AI-Produktion aus einer Hand.',
+    'Nova Shift verbindet Performance, UGC, Webdesign und Branding in einem klaren System für D2C- und E-Commerce-Brands.',
   url: 'https://nova-shift.website/',
 };
 
@@ -81,8 +81,8 @@ export const homeHero: {
     en: 'Full-service creative agency for performance brands that want to grow exponentially.',
   },
   meta: {
-    de: 'Nova Shift vereint datengetriebene Ad-Kampagnen, authentischen Creator-Content (UGC), hochkonvertierendes Webdesign, strategisches Branding und effiziente KI-Produktion zu einem einzigen, synergistischen System. Perfekt für D2C und E-Commerce.',
-    en: 'We turn brand ambition into visibility, user-generated content, and conversion across every digital channel, powered by smart design and AI automation.',
+    de: 'Nova Shift verbindet Content, Performance und Design in einem System – für Brands, die schneller sichtbar und effizient skalieren wollen.',
+    en: 'Nova Shift combines content, performance and design in one system for brands that want to grow faster and more efficiently.',
   },
   servicePills: ['Nova Advertising', 'Nova Cast', 'Nova Web', 'Nova Aura', 'Nova Production'],
 };
@@ -92,40 +92,40 @@ export const homeCards: ServiceCard[] = [
     tag: '01',
     title: { de: 'Nova Advertising', en: 'Nova Advertising' },
     body: {
-      de: 'Performancegetriebene Kampagnen für Meta, Google und TikTok. Kreative Exzellenz trifft datenbasierte Optimierung.',
-      en: 'Performance-driven campaigns for Meta, Google and TikTok. Creative excellence meets data-based optimization.',
+      de: 'Performance-Kampagnen für Meta, Google und TikTok mit klarer Test- und Optimierungslogik.',
+      en: 'Performance campaigns for Meta, Google and TikTok with a clear testing and optimization logic.',
     },
   },
   {
     tag: '02',
     title: { de: 'Nova Cast', en: 'Nova Cast' },
     body: {
-      de: 'UGC und KI-generierter Ad-Content für D2C-Brands und ambitionierte Marken. Das Herzstück von Nova Shift.',
-      en: 'UGC and AI-generated ad content for D2C brands. The creative engine of Nova Shift.',
+      de: 'Authentischer UGC-Content, der schnell getestet, iteriert und skaliert werden kann.',
+      en: 'Authentic UGC content that can be tested, iterated and scaled quickly.',
     },
   },
   {
     tag: '03',
     title: { de: 'Nova Web', en: 'Nova Web' },
     body: {
-      de: 'Hochkonvertierende Websites, Shops und Landing Pages für KMUs und Brands. DSGVO-konform, mobil-optimiert, live in 7–14 Tagen.',
-      en: 'High-converting websites, shops and landing pages. GDPR-compliant, mobile-first, live in 7–14 days.',
+      de: 'Conversion-orientierte Websites und Landing Pages mit klarer Struktur und schneller Umsetzung.',
+      en: 'Conversion-focused websites and landing pages with clear structure and fast implementation.',
     },
   },
   {
     tag: '04',
     title: { de: 'Nova Aura', en: 'Nova Aura' },
     body: {
-      de: 'Markenidentitäten, die in Erinnerung bleiben. Von der Positionierung über Logo und Typografie bis zum vollständigen Brand-System.',
-      en: 'Brand identities that endure. From positioning and logo to a complete brand system.',
+      de: 'Positionierung und Markenidentität mit klarer visueller Sprache und Wirkung.',
+      en: 'Positioning and brand identity with a clear visual language and impact.',
     },
   },
   {
     tag: '05',
     title: { de: 'Nova Production', en: 'Nova Production' },
     body: {
-      de: 'KI-gestützte Content-Produktion und Produkt-Shootings. Studioqualität, deutlich schnellere Lieferung, mehr Variationen.',
-      en: 'AI-assisted content production and product shootings. Studio quality, faster delivery, more variations.',
+      de: 'Produkt- und Content-Production mit KI-Workflows für mehr Varianten und schnelleren Output.',
+      en: 'Product and content production with AI workflows for more variants and faster output.',
     },
   },
 ];
@@ -315,8 +315,8 @@ export const servicePages: Record<string, PageContent> = {
       label: 'Warum Nova Shift?',
       title: { de: 'Vertrauen + Performance', en: 'Trust + Performance' },
       body: {
-        de: 'Gute Zusammenarbeit beginnt mit Vertrauen und endet mit messbaren Ergebnissen. Wir verbinden Haltung, Strategie und Umsetzung zu einem System.',
-        en: 'Great collaboration starts with trust and ends with measurable results. We combine attitude, strategy and execution into one system.',
+        de: 'Wir verbinden Strategie, Umsetzung und Performance in einem klaren System.',
+        en: 'We combine strategy, execution and performance in one clear system.',
       },
     },
     cards: [
@@ -395,7 +395,7 @@ export const servicePages: Record<string, PageContent> = {
     slug: 'advertising',
     title: 'Nova Advertising – Kampagnen & Performance Ads',
     description:
-      'Nova Advertising konzipiert und schaltet Werbekampagnen für Meta, Google und TikTok. Kreative Exzellenz trifft datengetriebene Optimierung.',
+      'Kampagnen für Meta, Google und TikTok – kreativ geplant und messbar optimiert.',
     heroLabel: '01 / Nova Advertising',
     heroTitle: { de: 'Werbung, die\nbewegt.', en: 'Advertising that\nmoves.' },
     heroTagline: {
@@ -403,36 +403,36 @@ export const servicePages: Record<string, PageContent> = {
       en: 'Attention-driven advertising built for measurable performance.',
     },
     intro: {
-      label: 'Was wir machen',
-      title: { de: 'Kampagnen mit Wirkung', en: 'Campaigns with impact' },
+      label: 'Leistung',
+      title: { de: 'Strategie, Creative & Skalierung', en: 'Strategy, creative & scaling' },
       body: {
-        de: 'Wir übernehmen Konzeption, Produktion und Distribution eurer Kampagnen — von der Strategie bis zur Ausspielung auf allen relevanten Kanälen.',
-        en: 'We handle concept, production and distribution from strategy to live across all relevant channels.',
+        de: 'Wir bauen Performance-Kampagnen mit klarer Strategie, relevanten Assets und messbarer Optimierung über den kompletten Funnel.',
+        en: 'We build performance campaigns with clear strategy, relevant assets and measurable optimization across the full funnel.',
       },
     },
     cards: [
       {
-        tag: 'Unsere Stärken',
-        title: { de: 'Kreativ & datengetrieben', en: 'Creative and data-led' },
+        tag: 'Leistungsmodell',
+        title: { de: 'Kreativ + Daten', en: 'Creative + data' },
         body: {
-          de: 'Jede Kampagne verbindet kreative Exzellenz mit messbaren Daten. Wir testen, optimieren und skalieren kontinuierlich.',
-          en: 'Every campaign combines creative excellence with measurable data. We test, optimize and scale continuously.',
-        },
-      },
-      {
-        tag: 'Warum Nova Advertising',
-        title: { de: 'Full-Service aus einer Hand', en: 'Full service under one roof' },
-        body: {
-          de: 'Strategie, Creatives, Setup, Optimierung und Reporting kommen aus einem System.',
-          en: 'Strategy, creatives, setup, optimization and reporting come from one system.',
+          de: 'Strategie, Creative und Optimierung laufen auf einem Messkreuz und werden in jedem Sprint verbessert.',
+          en: 'Strategy, creative and optimization run in one loop and improve with every sprint.',
         },
       },
       {
         tag: 'Kanal-Stack',
-        title: { de: 'Multi-Channel', en: 'Multi-channel' },
+        title: { de: 'Meta, TikTok, Google', en: 'Meta, TikTok, Google' },
         body: {
-          de: 'Meta, Google, TikTok, YouTube und LinkedIn mit nativem Setup.',
-          en: 'Meta, Google, TikTok, YouTube and LinkedIn with native execution.',
+          de: 'Ein Setup, mehrere Kanäle, ein klarer Testplan und schnellere Entscheidungen auf Basis von Daten.',
+          en: 'One setup, multiple channels, one clear testing plan and faster decisions based on data.',
+        },
+      },
+      {
+        tag: 'Skalierung',
+        title: { de: 'Testen statt raten', en: 'Test instead of guessing' },
+        body: {
+          de: 'Wir lernen aus den ersten Resultaten und skalieren nur das, was wirklich trägt.',
+          en: 'We learn from the first results and scale only what actually works.',
         },
       },
     ],
@@ -464,7 +464,7 @@ export const servicePages: Record<string, PageContent> = {
     slug: 'cast',
     title: 'Nova Cast – UGC Agentur & AI Ad Production',
     description:
-      'Nova Cast produziert authentischen UGC-Content und AI-generierte Ad-Creatives für D2C-Brands. 1 Shooting liefert viele Assets für Meta, TikTok und Instagram.',
+      'Authentischer UGC- und AI-Content für D2C-Brands mit schnell testbarem Output.',
     heroLabel: '02 / Nova Cast',
     heroTitle: { de: 'Content der\nkonvertiert.', en: 'Content that\nconverts.' },
     heroTagline: {
@@ -472,36 +472,36 @@ export const servicePages: Record<string, PageContent> = {
       en: 'Creator-first content production powered by AI.',
     },
     intro: {
-      label: 'Was ist Nova Cast?',
-      title: { de: 'Das Content-Betriebssystem', en: 'The content operating system' },
+      label: 'Leistung',
+      title: { de: 'UGC-Workflow & Asset-Engine', en: 'UGC workflow & asset engine' },
       body: {
-        de: 'Nova Cast ist die UGC- und AI-Content-Abteilung von Nova Shift. Ein Shooting liefert über unsere AI-gestützte Nachproduktion bis zu 50 fertige Ad-Assets.',
-        en: 'Nova Cast is the UGC and AI content division of Nova Shift. One shoot can deliver up to 50 ad assets through our AI-powered post-production.',
+        de: 'Ein Setup liefert Creator-Content, Varianten und Ad-Assets für Meta, TikTok und Instagram – schnell testbar und skalierbar.',
+        en: 'One setup delivers creator content, variants and ad assets for Meta, TikTok and Instagram – fast to test and easy to scale.',
       },
     },
     cards: [
       {
-        tag: 'Was wir machen',
-        title: { de: 'UGC & AI Content', en: 'UGC and AI content' },
+        tag: 'Workflow',
+        title: { de: 'UGC, die testbar ist', en: 'UGC that is testable' },
         body: {
-          de: 'Authentische Creator-Videos und KI-generierte Ad-Creatives in einem integrierten System.',
-          en: 'Authentic creator videos and AI-generated ad creatives in one integrated system.',
+          de: 'Authentische Creator-Videos mit klaren Hooks, sauberem Storytelling und sofort nutzbaren Varianten.',
+          en: 'Authentic creator videos with clear hooks, strong storytelling and immediately usable variants.',
         },
       },
       {
-        tag: 'Unser Ansatz',
+        tag: 'Output',
         title: { de: '1 Shoot → 50 Assets', en: '1 shoot → 50 assets' },
         body: {
-          de: 'Hooks, Hintergründe, Musik, Untertitel-Stile und Formate entstehen in der Post-Production.',
-          en: 'Hooks, backgrounds, music, subtitle styles and formats are created in post-production.',
+          de: 'Hooks, Hintergründe, Musik, Untertitelstile und Formate werden in der Post-Production systematisch erzeugt.',
+          en: 'Hooks, backgrounds, music, subtitle styles and formats are systematically created in post-production.',
         },
       },
       {
-        tag: 'Warum Nova Cast',
-        title: { de: 'Authentizität trifft Technologie', en: 'Authenticity meets technology' },
+        tag: 'AI + Authentizität',
+        title: { de: 'Technik ohne Verlust', en: 'Tech without losing the human feel' },
         body: {
-          de: 'Die KI skaliert den Content, ersetzt aber nicht die Creator-Attitüde.',
-          en: 'AI scales the content, but does not replace creator authenticity.',
+          de: 'Die KI skaliert die Produktion, aber der echte Creator-Auftakt bleibt der entscheidende Faktor.',
+          en: 'AI scales production, but the real creator presence remains the deciding factor.',
         },
       },
     ],
@@ -533,7 +533,7 @@ export const servicePages: Record<string, PageContent> = {
     slug: 'web',
     title: 'Nova Web – Webdesign Agentur für KMU & Brands',
     description:
-      'Nova Web erstellt hochkonvertierende Websites, Shops und Landing Pages. Webflow, Shopify, WordPress – mobil-optimiert, SEO-ready und DSGVO-konform.',
+      'Websites, Shops und Landing Pages mit klarer Conversion-Architektur und schneller Umsetzung.',
     heroLabel: '03 / Nova Web Solutions',
     heroTitle: { de: 'Digitale Präsenz,\nneu definiert.', en: 'Digital presence,\nredefined.' },
     heroTagline: {
@@ -541,36 +541,36 @@ export const servicePages: Record<string, PageContent> = {
       en: 'Experience-led web design built for performance and growth.',
     },
     intro: {
-      label: 'Was wir machen',
-      title: { de: 'Websites die wirken', en: 'Websites that work' },
+      label: 'Leistung',
+      title: { de: 'Websites, die verkaufen', en: 'Websites that sell' },
       body: {
-        de: 'Strategie, Design und Umsetzung aus einer Hand. Von der Landing Page bis zum vollständigen E-Commerce-Shop.',
-        en: 'Strategy, design and execution under one roof. From landing pages to full e-commerce shops.',
+        de: 'Von der Struktur bis zum Launch planen wir jede Seite mit Conversion, Speed und Klarheit im Blick.',
+        en: 'From structure to launch, we design every page around conversion, speed and clarity.',
       },
     },
     cards: [
       {
-        tag: 'Unsere Ziele',
+        tag: 'Konversion',
         title: { de: 'Conversion über Ästhetik', en: 'Conversion over decoration' },
         body: {
-          de: 'Schön ist Pflicht. Funktionieren ist das Ziel.',
-          en: 'Beauty is mandatory. Function is the goal.',
+          de: 'Wir bauen auf klarer Struktur, starkem CTA und sauberer Nutzerführung statt auf reinem Styling.',
+          en: 'We build around clear structure, strong CTAs and smooth user flow instead of pure styling.',
         },
       },
       {
-        tag: 'Warum Nova Web',
+        tag: 'System',
         title: { de: 'Alles aus einer Hand', en: 'Everything in one system' },
         body: {
-          de: 'Design, Entwicklung, Texte, Bilder und Hosting kommen von uns.',
-          en: 'Design, development, copy, imagery and hosting come from us.',
+          de: 'Design, Texte, Aufbau und technische Umsetzung entstehen aus einem gemeinsamen Prozess.',
+          en: 'Design, copy, structure and technical execution come from one shared process.',
         },
       },
       {
         tag: 'Geschwindigkeit',
         title: { de: 'Live in 7 Tagen', en: 'Live in 7 days' },
         body: {
-          de: 'Nova Landing ist in einer Woche live.',
-          en: 'Nova Landing is live in one week.',
+          de: 'Ein klarer Fokus auf das Wesentliche macht schnelle Umsetzung und frühen Start möglich.',
+          en: 'A clear focus on the essentials makes fast delivery and early launch possible.',
         },
       },
     ],
@@ -602,7 +602,7 @@ export const servicePages: Record<string, PageContent> = {
     slug: 'aura',
     title: 'Nova Aura – Branding & Markenidentität',
     description:
-      'Nova Aura entwickelt starke Markenidentitäten: Logo, Typografie, Farbsystem, Positionierung und Markenstimme. Für Brands, die in Erinnerung bleiben wollen.',
+      'Branding mit klarer Positionierung, Stil und Markenwirkung.',
     heroLabel: '04 / Nova Aura',
     heroTitle: { de: 'Deine Marke.\nUnvergesslich.', en: 'Your brand.\nUnforgettable.' },
     heroTagline: {
@@ -610,36 +610,36 @@ export const servicePages: Record<string, PageContent> = {
       en: 'Brand strategy and identity systems built to endure.',
     },
     intro: {
-      label: 'Was wir machen',
-      title: { de: 'Brand Identity', en: 'Brand identity' },
+      label: 'Leistung',
+      title: { de: 'Positionierung & visuelle Klarheit', en: 'Positioning & visual clarity' },
       body: {
-        de: 'Wir entwickeln das vollständige visuelle und kommunikative Erscheinungsbild eurer Marke.',
-        en: 'We develop the full visual and verbal expression of your brand.',
+        de: 'Wir entwickeln Marken, die sich in Positionierung, Typografie und Kommunikation klar von der Masse abheben.',
+        en: 'We develop brands that stand out through positioning, typography and a clear communication system.',
       },
     },
     cards: [
       {
-        tag: 'Unser Ansatz',
-        title: { de: 'Strategie vor Ästhetik', en: 'Strategy before aesthetics' },
+        tag: 'Positionierung',
+        title: { de: 'Strategie vor Stil', en: 'Strategy before style' },
         body: {
-          de: 'Ein Logo ohne Haltung ist ein Bild. Die visuelle Identität folgt der Positionierung.',
-          en: 'A logo without a point of view is just a picture. Visual identity follows positioning.',
+          de: 'Wir bauen die Markenidentität auf einer klaren Haltung und einer verständlichen Positionierung auf.',
+          en: 'We build the brand identity on a clear point of view and a precise positioning.',
         },
       },
       {
-        tag: 'Warum Nova Aura',
-        title: { de: 'Design mit Haltung', en: 'Design with conviction' },
+        tag: 'System',
+        title: { de: 'Logo, Typografie, Stimme', en: 'Logo, typography, voice' },
         body: {
-          de: 'Keine Trends, keine generischen Systeme — ein Auftritt, der wirklich zu euch gehört.',
-          en: 'No trends, no generic systems — a presence that truly belongs to you.',
+          de: 'Die visuelle Sprache und die Markenstimme werden als ein konsistentes System entwickelt.',
+          en: 'The visual language and brand voice are built as one consistent system.',
         },
       },
       {
-        tag: 'Lieferumfang',
-        title: { de: 'Das vollständige Marken-System', en: 'The complete brand system' },
+        tag: 'Wirkung',
+        title: { de: 'Erkennbar statt generisch', en: 'Recognizable instead of generic' },
         body: {
-          de: 'Positionierung, Logo-System, Typografie, Farbwelt, Brand Voice und Guidelines.',
-          en: 'Positioning, logo system, typography, color world, brand voice and guidelines.',
+          de: 'Ein guter Brand fühlt sich nachweislich passend an — und bleibt in Erinnerung.',
+          en: 'A strong brand feels distinctly right and remains memorable over time.',
         },
       },
     ],
@@ -671,7 +671,7 @@ export const servicePages: Record<string, PageContent> = {
     slug: 'production',
     title: 'Nova Production – AI-Content & Produktshooting',
     description:
-      'Nova Production kombiniert KI-generierte Visuals mit professionellen Produkt-Shootings. Studioqualität, schnellere Lieferung und mehr Variationen.',
+      'Produkt- und Content-Production mit KI für schnellere Varianten und mehr Output.',
     heroLabel: '05 / Nova Production',
     heroTitle: { de: 'Content der\nnächsten Generation.', en: 'Content of\nthe next generation.' },
     heroTagline: {
@@ -679,36 +679,36 @@ export const servicePages: Record<string, PageContent> = {
       en: 'Production accelerated by AI without compromising quality.',
     },
     intro: {
-      label: 'Was wir machen',
-      title: { de: 'KI trifft Realität', en: 'AI meets reality' },
+      label: 'Leistung',
+      title: { de: 'Mehr Output aus einem Setup', en: 'More output from one setup' },
       body: {
-        de: 'Produktvisuals, virtuelle Sets und AI-generierte Environments. Wir verbinden Shooting und KI zu einem System, das aus einem Setup mehr macht.',
-        en: 'Product visuals, virtual sets and AI-generated environments. We combine shooting and AI into a system that gets more from one setup.',
+        de: 'Aus einem Shoot entstehen Varianten, Formate und Produktvisuals für Social, Ads und Web – mit einheitlichem Stil und höherer Geschwindigkeit.',
+        en: 'One shoot becomes multiple variants, formats and product visuals for social, ads and web with a consistent style and faster delivery.',
       },
     },
     cards: [
       {
-        tag: 'Unser Ansatz',
+        tag: 'Workflow',
         title: { de: 'Vom Setup zur Asset-Bibliothek', en: 'From setup to asset library' },
         body: {
-          de: 'Ein Drehtag wird zum Ausgangspunkt für viele Formate, Perspektiven und Nutzungen.',
-          en: 'One shoot day becomes the starting point for many formats, perspectives and uses.',
+          de: 'Ein Drehtag liefert nicht nur einen Content-Block, sondern viele Formate, Variationen und Nutzungskontexte.',
+          en: 'One shoot does not just produce one asset; it creates multiple formats, variations and use cases.',
         },
       },
       {
-        tag: 'Warum Nova Production',
-        title: { de: 'Studioqualität, smart', en: 'Studio quality, smarter' },
+        tag: 'Output',
+        title: { de: 'Mehr Formate. Mehr Varianten.', en: 'More formats. More variants.' },
         body: {
-          de: 'KI-Remixing, automatische Formatanpassung und Batch-Export arbeiten zusammen.',
-          en: 'AI remixing, automatic format adaptation and batch export work together.',
+          de: 'KI-Remixing, Format-Adaptierung und Batch-Export machen aus einem Setup schnell mehrere Nutzungsmöglichkeiten.',
+          en: 'AI remixing, format adaptation and batch export turn one setup into several usable outputs fast.',
         },
       },
       {
         tag: 'Tools',
-        title: { de: 'Die Tools hinter unserem Prozess', en: 'The tools behind our process' },
+        title: { de: 'Praxis statt Laboreffekt', en: 'Practical, not theoretical' },
         body: {
-          de: 'HeyGen, Runway, Descript, ElevenLabs, Whisper, Midjourney und Flux.',
-          en: 'HeyGen, Runway, Descript, ElevenLabs, Whisper, Midjourney and Flux.',
+          de: 'Die Tools dienen dem Zweck: schnellere Varianten, bessere Ausspielung und mehr konsistente Produktionen.',
+          en: 'The tools exist to produce faster variants, cleaner distribution and more consistent output.',
         },
       },
     ],
@@ -822,8 +822,8 @@ export const coreServices: Array<{
     urlPath: '/advertising',
     serviceType: { de: 'Performance Ads & Kampagnen', en: 'Performance ads and campaigns' },
     definition: {
-      de: 'Nova Advertising ist der Performance-Advertising-Service von Nova Shift: Kampagnenstrategie, Creative-Produktion und Distribution auf Meta, Google und TikTok.',
-      en: 'Nova Advertising is Nova Shift’s performance advertising service: campaign strategy, creative production and distribution across Meta, Google and TikTok.',
+      de: 'Performance-Kampagnen für Meta, Google und TikTok – strategisch geplant, kreativ produziert und messbar optimiert.',
+      en: 'Performance campaigns for Meta, Google and TikTok – planned strategically, produced creatively and optimized for measurable results.',
     },
     audience: {
       de: 'D2C- und E-Commerce-Brands, die Creatives systematisch testen und skalieren wollen.',
@@ -841,8 +841,8 @@ export const coreServices: Array<{
     urlPath: '/cast',
     serviceType: { de: 'UGC & AI Ad Production', en: 'UGC and AI ad production' },
     definition: {
-      de: 'Nova Cast ist die UGC- und AI-Content-Unit von Nova Shift. Ein Setup liefert mehrere Creator-Assets inklusive KI-gestützter Post-Production und Varianten.',
-      en: 'Nova Cast is Nova Shift’s UGC and AI content unit. One setup yields multiple creator assets with AI-assisted post-production and variants.',
+      de: 'UGC- und AI-Content für D2C-Brands mit hohem Variationspotenzial und schnellem Test-Workflow.',
+      en: 'UGC and AI content for D2C brands with high variation potential and a fast testing workflow.',
     },
     audience: {
       de: 'Brands, die mehr performante Video-Assets für Meta, TikTok und Instagram benötigen.',
@@ -860,8 +860,8 @@ export const coreServices: Array<{
     urlPath: '/web',
     serviceType: { de: 'Webdesign & Conversion-Architektur', en: 'Web design and conversion architecture' },
     definition: {
-      de: 'Nova Web ist der Webdesign- und Development-Service von Nova Shift: Websites, Shops und Landing Pages mit klarer Struktur, SEO-Basics und Conversion-Fokus.',
-      en: 'Nova Web is Nova Shift’s web design and development service: websites, shops and landing pages with clear structure, SEO fundamentals and conversion focus.',
+      de: 'Websites, Shops und Landing Pages mit klarer Conversion-Architektur und schneller Umsetzung.',
+      en: 'Websites, shops and landing pages with clear conversion architecture and fast implementation.',
     },
     audience: {
       de: 'KMU und Brands, die schneller sichtbar sein und mehr qualifizierte Anfragen oder Käufe erzielen wollen.',
@@ -879,8 +879,8 @@ export const coreServices: Array<{
     urlPath: '/aura',
     serviceType: { de: 'Branding & Markenidentität', en: 'Branding and brand identity' },
     definition: {
-      de: 'Nova Aura entwickelt Markenidentitäten: Positionierung, Brand Voice, visuelles System (Logo, Typografie, Farben) und Guidelines.',
-      en: 'Nova Aura builds brand identities: positioning, brand voice, visual system (logo, typography, colors) and guidelines.',
+      de: 'Markenidentität mit klarer Positionierung, Formensprache und konsistentem Brand-System.',
+      en: 'Brand identity with a clear positioning, visual language and consistent brand system.',
     },
     audience: {
       de: 'Brands, die ein klares Profil, Wiedererkennbarkeit und ein konsistentes Brand-System brauchen.',
@@ -898,8 +898,8 @@ export const coreServices: Array<{
     urlPath: '/production',
     serviceType: { de: 'AI-Content & Produktproduktion', en: 'AI content and product production' },
     definition: {
-      de: 'Nova Production kombiniert Produkt-Shootings mit KI-Workflows für schnellere Varianten, virtuelle Sets und skalierbaren Premium-Content.',
-      en: 'Nova Production combines product shoots with AI workflows for faster variants, virtual sets and scalable premium content.',
+      de: 'Produkt- und Content-Production mit KI für schnellere Varianten, mehr Output und skalierbaren Premium-Content.',
+      en: 'Product and content production with AI for faster variants, more output and scalable premium content.',
     },
     audience: {
       de: 'Brands mit Bedarf an hochwertigen Visuals, die in mehreren Formaten und Kanälen schnell ausspielbar sein müssen.',

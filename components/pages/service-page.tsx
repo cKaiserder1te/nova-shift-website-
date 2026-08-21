@@ -80,7 +80,6 @@ export function ServicePage({ page }: ServicePageProps) {
                     <h3 className="mt-5 text-2xl font-light tracking-[0.03em] text-[var(--text)]">{item.title.de}</h3>
                   </MotionReveal>
                   <p className="mt-4 text-sm leading-7 text-[var(--text-muted)]">{item.body.de}</p>
-                  <p className="mt-4 text-sm leading-7 text-[var(--text-muted)]">{item.body.en}</p>
                 </article>
               </MotionSequenceItem>
             ))}

@@ -51,6 +51,8 @@
   .ds-page {
     position: relative;
     z-index: 10;
+    content-visibility: auto;
+    contain-intrinsic-size: 1200px 2000px;
   }
 
   .ds-page::before {
@@ -73,6 +75,8 @@
   .ds-section {
     padding-top: 4rem;
     padding-bottom: 4rem;
+    content-visibility: auto;
+    contain-intrinsic-size: 1200px 600px;
   }
 
   @media (min-width: 1024px) {

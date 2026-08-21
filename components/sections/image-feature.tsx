@@ -41,18 +41,11 @@ export function ImageFeature({ feature }: ImageFeatureProps) {
               <BodyCopy className="max-w-xl text-base md:text-lg">{feature.caption.de}</BodyCopy>
             </MotionSequenceItem>
             <MotionSequenceItem>
-              <div className="ds-auto-grid" style={{ ['--grid-min' as string]: '12rem' }}>
-                <EnterpriseCard variant="surface" className="p-5">
-                  <Caption as="p">DE</Caption>
-                  <BodyCopy className="mt-4 ds-body-copy--dense">{feature.title.de}</BodyCopy>
-                  <BodyCopy className="mt-4 ds-body-copy--dense">{feature.caption.de}</BodyCopy>
-                </EnterpriseCard>
-                <EnterpriseCard variant="surface" className="p-5">
-                  <Caption as="p">EN</Caption>
-                  <BodyCopy className="mt-4 ds-body-copy--dense">{feature.title.en}</BodyCopy>
-                  <BodyCopy className="mt-4 ds-body-copy--dense">{feature.caption.en}</BodyCopy>
-                </EnterpriseCard>
-              </div>
+              <EnterpriseCard variant="surface" className="p-5">
+                <Caption as="p">Overview</Caption>
+                <BodyCopy className="mt-4 ds-body-copy--dense">{feature.title.de}</BodyCopy>
+                <BodyCopy className="mt-4 ds-body-copy--dense">{feature.caption.de}</BodyCopy>
+              </EnterpriseCard>
             </MotionSequenceItem>
           </MotionSequence>
 

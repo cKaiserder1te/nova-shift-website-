@@ -138,9 +138,9 @@ export function LedBackground() {
           className="transition-colors duration-500"
           style={{
             stroke: 'var(--led-color, #00e5ff)',
-            filter: 'drop-shadow(0 0 4px var(--led-glow, rgba(0, 229, 255, 0.56))) drop-shadow(0 0 14px var(--led-glow, rgba(0, 229, 255, 0.56)))',
+            filter: 'drop-shadow(0 0 2px var(--led-glow, rgba(0, 229, 255, 0.56)))',
             willChange: 'stroke-dashoffset',
-            transition: 'filter 500ms var(--ease-out), stroke 500ms var(--ease-out)',
+            transition: 'filter 180ms var(--ease-out), stroke 180ms var(--ease-out)',
           }}
         />
       </svg>
