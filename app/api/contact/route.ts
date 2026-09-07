@@ -1,29 +1,12 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { getSupabaseAdmin } from '@/lib/supabase-admin';
+import { contactSubmissionSchema } from '@/lib/contact-form';
 
 export const runtime = 'nodejs';
 
-const allowedServices = ['advertising', 'cast', 'web', 'aura', 'production'] as const;
-const allowedBudgets = ['< 5k', '5k - 15k', '15k - 50k', '50k+'] as const;
-
-type ContactPayload = {
-  service?: unknown;
-  budget?: unknown;
-  name?: unknown;
-  email?: unknown;
-  project?: unknown;
-  privacyAccepted?: unknown;
-  website?: unknown;
-};
-
-const isAllowedValue = <T extends readonly string[]>(value: unknown, allowed: T): value is T[number] =>
-  typeof value === 'string' && allowed.includes(value);
-
-const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
 export async function POST(request: Request) {
-  let payload: ContactPayload;
+  let payload: unknown;
 
   try {
     payload = await request.json();
@@ -31,24 +14,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Ungültige Anfrage.' }, { status: 400 });
   }
 
-  const service = payload.service;
-  const budget = payload.budget;
-  const name = typeof payload.name === 'string' ? payload.name.trim() : '';
-  const email = typeof payload.email === 'string' ? payload.email.trim() : '';
-  const project = typeof payload.project === 'string' ? payload.project.trim() : '';
-  const website = typeof payload.website === 'string' ? payload.website.trim() : '';
+  const validation = contactSubmissionSchema.safeParse(payload);
 
-  if (
-    website ||
-    !isAllowedValue(service, allowedServices) ||
-    !isAllowedValue(budget, allowedBudgets) ||
-    !name || name.length > 100 ||
-    !email || email.length > 254 || !isEmail(email) ||
-    project.length > 5000 ||
-    payload.privacyAccepted !== true
-  ) {
-    return NextResponse.json({ error: 'Bitte überprüfe deine Eingaben.' }, { status: 400 });
+  if (!validation.success) {
+    return NextResponse.json({ error: validation.error.issues[0]?.message || 'Bitte überprüfe deine Eingaben.' }, { status: 400 });
   }
+
+  const { service, budget, name, email, project } = validation.data;
 
   let supabase;
   let requestId: string;

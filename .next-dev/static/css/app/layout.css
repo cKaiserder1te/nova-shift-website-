@@ -1245,6 +1245,9 @@ button,
 .relative{
   position: relative;
 }
+.inset-0{
+  inset: 0px;
+}
 .inset-y-0{
   top: 0px;
   bottom: 0px;
@@ -1293,6 +1296,9 @@ button,
 }
 .mt-10{
   margin-top: 2.5rem;
+}
+.mt-14{
+  margin-top: 3.5rem;
 }
 .mt-16{
   margin-top: 4rem;
@@ -1615,6 +1621,10 @@ button,
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
 }
+.py-3{
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
 .py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -1804,8 +1814,20 @@ button,
 .underline{
   text-decoration-line: underline;
 }
+.underline-offset-2{
+  text-underline-offset: 2px;
+}
+.underline-offset-4{
+  text-underline-offset: 4px;
+}
 .accent-ds-content{
   accent-color: var(--text-primary);
+}
+.opacity-0{
+  opacity: 0;
+}
+.opacity-100{
+  opacity: 1;
 }
 .drop-shadow{
   --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
@@ -1847,11 +1869,22 @@ button,
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+.transition-opacity{
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 .duration-300{
   transition-duration: 300ms;
 }
 .duration-500{
   transition-duration: 500ms;
+}
+.duration-1000{
+  transition-duration: 1000ms;
+}
+.ease-in-out{
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .section-shell {
     margin-left: auto;
@@ -1922,8 +1955,16 @@ button,
   color: var(--accent-light);
 }
 
+.hover\:text-\[var\(--text-primary\)\]:hover{
+  color: var(--text-primary);
+}
+
 .hover\:text-ds-content:hover{
   color: var(--text-primary);
+}
+
+.hover\:decoration-ds-content:hover{
+  text-decoration-color: var(--text-primary);
 }
 
 .focus\:ring-1:focus{
@@ -2075,6 +2116,10 @@ button,
 
   .lg\:grid-cols-\[0\.8fr_1\.2fr\]{
     grid-template-columns: 0.8fr 1.2fr;
+  }
+
+  .lg\:grid-cols-\[minmax\(0\2c 1\.4fr\)_minmax\(0\2c 1fr\)\]{
+    grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
   }
 
   .lg\:flex-row{

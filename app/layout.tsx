@@ -6,8 +6,7 @@ import { SiteFooter } from '@/components/layout/site-footer';
 import { SiteHeader } from '@/components/layout/site-header';
 import { siteMeta } from '@/lib/site-content';
 import { JsonLd } from '@/components/seo/json-ld';
-import Script from 'next/script';
-import { LedBackground } from '@/components/LedBackground';
+import { LedBackgroundClient } from '@/components/layout/led-background-client';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -84,48 +83,11 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="de" className={`${cormorant.variable} ${rajdhani.variable} ${spaceMono.variable}`}>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(){
-                try {
-                  var path = window.location.pathname || '/';
-                  var primary = path === '/' ? '/' : '/' + (path.split('/').filter(Boolean)[0] || '');
-                  var routes = {
-                    '/': { color: '#2E6BFF', light: '#69A4FF', glow: 'rgba(46,107,255,0.45)' },
-                    '/about': { color: '#7B3DFF', light: '#B36DFF', glow: 'rgba(123,61,255,0.45)' },
-                    '/advertising': { color: '#FF3B3B', light: '#FF6A6A', glow: 'rgba(255,59,59,0.45)' },
-                    '/cast': { color: '#F5A623', light: '#FFD15A', glow: 'rgba(245,166,35,0.40)' },
-                    '/web': { color: '#2E6BFF', light: '#69A4FF', glow: 'rgba(46,107,255,0.45)' },
-                    '/aura': { color: '#7B3DFF', light: '#B36DFF', glow: 'rgba(123,61,255,0.45)' },
-                    '/production': { color: '#00E58B', light: '#5EFFB4', glow: 'rgba(0,229,139,0.40)' },
-                    '/contact': { color: '#2E6BFF', light: '#69A4FF', glow: 'rgba(46,107,255,0.45)' }
-                  };
-                  var style = routes[primary] || routes['/'];
-                  var root = document.documentElement;
-                  root.style.setProperty('--led-color', style.color);
-                  root.style.setProperty('--accent', style.color);
-                  root.style.setProperty('--accent-light', style.light);
-                  root.style.setProperty('--gold', style.color);
-                  root.style.setProperty('--gold-light', style.light);
-                  root.style.setProperty('--led-glow', style.glow);
-                  root.style.setProperty('--accent-glow', style.glow);
-                } catch (error) {}
-              })();
-            `,
-          }}
-        />
         <JsonLd />
-        {/* Load decorative styles non-blocking: append stylesheet after hydration */}
-        <Script id="load-decor-css" strategy="afterInteractive">
-          {`(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='/styles/decor.css';document.head.appendChild(l);})();`}
-        </Script>
-        <noscript>
-          <link rel="stylesheet" href="/styles/decor.css" />
-        </noscript>
+        <link rel="stylesheet" href="/styles/decor.css" />
       </head>
       <body className="relative isolate min-h-screen bg-[var(--bg)] text-[var(--text)]">
-        <LedBackground />
+        <LedBackgroundClient />
         <div className="relative z-10">
           <SiteHeader />
           {children}

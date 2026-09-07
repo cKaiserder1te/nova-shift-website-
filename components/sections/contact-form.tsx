@@ -1,7 +1,9 @@
 "use client";
 
+import Link from 'next/link';
 import { useState, useCallback, useMemo, type FormEvent } from 'react';
 import { companyEntity } from '@/lib/site-content';
+import { contactSubmissionSchema } from '@/lib/contact-form';
 import { EnterpriseButton } from '@/components/ui/enterprise-button';
 import { MotionReveal, MotionSequence, MotionSequenceItem } from '@/components/motion/motion-system';
 
@@ -44,13 +46,21 @@ export function ContactForm() {
   const handleSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setErrorMessage('');
+
+    const validation = contactSubmissionSchema.safeParse(formData);
+
+    if (!validation.success) {
+      setErrorMessage(validation.error.issues[0]?.message || 'Bitte überprüfe deine Eingaben.');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(validation.data),
       });
 
       if (!response.ok) {
@@ -200,7 +210,13 @@ export function ContactForm() {
                   required
                   className="mt-1 accent-ds-content"
                 />
-                <span>Ich stimme der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu.</span>
+                <span>
+                  Ich stimme der Verarbeitung meiner Daten gemäß der{' '}
+                  <Link href="/datenschutz" className="underline underline-offset-2 decoration-ds-content/40 transition-colors hover:decoration-ds-content">
+                    Datenschutzerklärung
+                  </Link>{' '}
+                  zu.
+                </span>
               </label>
               <label className="sr-only" aria-hidden="true">
                 Website

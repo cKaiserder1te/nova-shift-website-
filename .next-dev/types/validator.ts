@@ -65,6 +65,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../app/datenschutz/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/datenschutz">> = Specific
+  const handler = {} as typeof import("../../app/datenschutz/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../app/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/">> = Specific
@@ -78,6 +87,42 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/contact">> = Specific
   const handler = {} as typeof import("../../app/api/contact/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/sitemap-index.xml/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/sitemap-index.xml">> = Specific
+  const handler = {} as typeof import("../../app/sitemap-index.xml/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/sitemaps/images.xml/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/sitemaps/images.xml">> = Specific
+  const handler = {} as typeof import("../../app/sitemaps/images.xml/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/sitemaps/pages.xml/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/sitemaps/pages.xml">> = Specific
+  const handler = {} as typeof import("../../app/sitemaps/pages.xml/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/sitemaps/services.xml/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/sitemaps/services.xml">> = Specific
+  const handler = {} as typeof import("../../app/sitemaps/services.xml/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

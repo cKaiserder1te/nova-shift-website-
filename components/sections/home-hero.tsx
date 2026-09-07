@@ -5,6 +5,8 @@ import { BodyCopy, DisplayTitle, Eyebrow } from '@/components/ui/typography';
 import { ShortAnswer } from '@/components/seo/short-answer';
 import { EnterpriseCard } from '@/components/ui/enterprise-card';
 import { MotionReveal, MotionSequence, MotionSequenceItem, MotionSection } from '@/components/motion/motion-system';
+import { EntitySheet } from '@/components/seo/entity-sheet';
+import { companyEntity } from '@/lib/site-content';
 
 const serviceRoutes = [
   { href: '/advertising', label: 'Nova Advertising' },
@@ -38,7 +40,7 @@ export function HomeHero() {
             </MotionSequenceItem>
             <MotionSequenceItem>
               <div className="ds-cluster pt-2">
-                <EnterpriseButtonLink href="/contact" variant="primary">
+                <EnterpriseButtonLink href="#contact" variant="primary">
                   Projekt starten
                 </EnterpriseButtonLink>
                 <EnterpriseButtonLink href="#cases" variant="secondary">
@@ -61,14 +63,24 @@ export function HomeHero() {
           </MotionSequence>
 
           <MotionReveal kind="mask" delay={0.12}>
-            <EnterpriseCard variant="glass" className="p-6 md:p-8">
-              <Eyebrow as="p">DE</Eyebrow>
-              <BodyCopy className="mt-4 whitespace-pre-line">{homeHero.subtitle.de}</BodyCopy>
-              <Eyebrow as="p" className="mt-8">
-                EN
-              </Eyebrow>
-              <BodyCopy className="mt-4 whitespace-pre-line">{homeHero.subtitle.en}</BodyCopy>
-            </EnterpriseCard>
+            <div className="ds-stack" style={{ ['--stack-gap' as string]: '1.5rem' }}>
+              <EntitySheet
+                name={companyEntity.name}
+                type="Organization"
+                definition={companyEntity.description}
+                url={companyEntity.url}
+                properties={{ Founded: companyEntity.foundingDate, Languages: (companyEntity.availableLanguages || []).join(', ') }}
+              />
+
+              <EnterpriseCard variant="glass" className="p-6 md:p-8">
+                <Eyebrow as="p">DE</Eyebrow>
+                <BodyCopy className="mt-4 whitespace-pre-line">{homeHero.subtitle.de}</BodyCopy>
+                <Eyebrow as="p" className="mt-8">
+                  EN
+                </Eyebrow>
+                <BodyCopy className="mt-4 whitespace-pre-line">{homeHero.subtitle.en}</BodyCopy>
+              </EnterpriseCard>
+            </div>
           </MotionReveal>
         </div>
       </Container>

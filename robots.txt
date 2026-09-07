@@ -1,4 +1,28 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+Sitemap: https://nova-shift.website/sitemap-index.xml
 Sitemap: https://nova-shift.website/sitemap.xml
+Host: https://nova-shift.website

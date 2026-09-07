@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { siteMeta } from '@/lib/site-content';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: ['/api/'],
       },
       {
         userAgent: 'Google-Extended',
@@ -30,9 +32,16 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: 'Claude-Web',
         allow: '/',
-      }
+      },
+      {
+        userAgent: 'OAI-SearchBot',
+        allow: '/',
+      },
     ],
-    sitemap: 'https://nova-shift.website/sitemap.xml',
-    host: 'https://nova-shift.website',
+    sitemap: [
+      new URL('/sitemap-index.xml', siteMeta.url).toString(),
+      new URL('/sitemap.xml', siteMeta.url).toString(),
+    ],
+    host: siteMeta.url,
   };
 }

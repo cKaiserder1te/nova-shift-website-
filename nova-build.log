@@ -1,0 +1,45 @@
+
+> nova-shift@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.18
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 5.1s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/19) ...
+   Generating static pages (4/19) 
+   Generating static pages (9/19) 
+   Generating static pages (14/19) 
+ ✓ Generating static pages (19/19)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                      179 B         139 kB
+├ ○ /_not-found                            992 B         103 kB
+├ ● /[slug]                              5.35 kB         144 kB
+├   ├ /about
+├   ├ /advertising
+├   ├ /cast
+├   └ [+4 more paths]
+├ ƒ /api/contact                           140 B         103 kB
+├ ○ /contact                               179 B         139 kB
+├ ○ /datenschutz                           162 B         106 kB
+├ ○ /robots.txt                            140 B         103 kB
+├ ƒ /sitemap-index.xml                     140 B         103 kB
+├ ○ /sitemap.xml                           140 B         103 kB
+├ ƒ /sitemaps/images.xml                   140 B         103 kB
+├ ƒ /sitemaps/pages.xml                    140 B         103 kB
+└ ƒ /sitemaps/services.xml                 140 B         103 kB
++ First Load JS shared by all             102 kB
+  ├ chunks/255-4f84124391a7dac4.js       46.2 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
+  └ other shared chunks (total)          1.92 kB
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

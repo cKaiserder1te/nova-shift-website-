@@ -59,6 +59,11 @@ export function ImageFeature({ feature }: ImageFeatureProps) {
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="h-full w-full object-cover"
               />
+              <div className="border-t border-[var(--border)] px-5 py-3">
+                <Caption as="p" className="text-[0.62rem] uppercase tracking-[0.3em] text-[var(--text-dim)]">
+                  KI-generierter Inhalt
+                </Caption>
+              </div>
             </EnterpriseCard>
           </MotionParallax>
         </div>

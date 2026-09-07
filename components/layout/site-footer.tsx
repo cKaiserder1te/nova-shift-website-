@@ -45,8 +45,8 @@ export function SiteFooter() {
             © {new Date().getFullYear()} Nova Shift. Alle Rechte vorbehalten.
           </p>
           <div className="flex gap-4">
-            <Link href="/contact" className="text-xs text-[var(--text-muted)] hover:text-[var(--accent-light)] transition-colors">
-              Impressum & Datenschutz (tba)
+            <Link href="/datenschutz" className="text-xs text-[var(--text-muted)] hover:text-[var(--accent-light)] transition-colors">
+              Datenschutzerklärung
             </Link>
           </div>
         </MotionReveal>

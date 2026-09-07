@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"components/layout/led-background-client.tsx -> @/components/LedBackground\":{\"id\":\"components/layout/led-background-client.tsx -> @/components/LedBackground\",\"files\":[\"static/chunks/_app-pages-browser_components_LedBackground_tsx.js\"]}}"

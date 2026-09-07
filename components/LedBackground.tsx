@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 type LedRouteStyle = {
@@ -28,6 +28,9 @@ export function LedBackground() {
   const pathRef = useRef<SVGPathElement | null>(null);
   const pathLengthRef = useRef(0);
   const frameRef = useRef<number | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+  const [hasPathLength, setHasPathLength] = useState(false);
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   const getTopLevelPath = useCallback((value: string) => {
     if (value === '/') {
@@ -47,6 +50,7 @@ export function LedBackground() {
     const pathLength = path.getTotalLength();
     pathLengthRef.current = pathLength;
     path.style.strokeDasharray = `${pathLength}`;
+    setHasPathLength(true);
   }, []);
 
   const applyScrollProgress = useCallback(() => {
@@ -65,14 +69,43 @@ export function LedBackground() {
   }, []);
 
   const scheduleScrollProgressUpdate = useCallback(() => {
+    if (!isMounted || !isPageLoaded || !hasPathLength) {
+      return;
+    }
+
     if (frameRef.current !== null) {
       return;
     }
 
     frameRef.current = window.requestAnimationFrame(applyScrollProgress);
-  }, [applyScrollProgress]);
+  }, [applyScrollProgress, hasPathLength, isMounted, isPageLoaded]);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const markPageLoaded = () => {
+      setIsPageLoaded(true);
+    };
+
+    if (document.readyState === 'complete') {
+      markPageLoaded();
+      return;
+    }
+
+    window.addEventListener('load', markPageLoaded, { once: true });
+
+    return () => {
+      window.removeEventListener('load', markPageLoaded);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) {
+      return;
+    }
+
     updatePathMetrics();
     scheduleScrollProgressUpdate();
 
@@ -96,7 +129,7 @@ export function LedBackground() {
         window.cancelAnimationFrame(frameRef.current);
       }
     };
-  }, [scheduleScrollProgressUpdate, updatePathMetrics]);
+  }, [isMounted, scheduleScrollProgressUpdate, updatePathMetrics]);
 
   useEffect(() => {
     const routeStyle = ledRouteStyles[getTopLevelPath(pathname)] ?? ledRouteStyles.fallback;
@@ -126,7 +159,12 @@ export function LedBackground() {
   }, [getTopLevelPath, pathname, scheduleScrollProgressUpdate, updatePathMetrics]);
 
   return (
-    <div className="fixed top-0 left-0 h-full w-full pointer-events-none -z-10" aria-hidden="true">
+    <div
+      className={`fixed inset-0 -z-10 h-full w-full pointer-events-none opacity-0 transition-opacity duration-1000 ease-in-out ${
+        isMounted && hasPathLength ? 'opacity-100' : ''
+      }`}
+      aria-hidden="true"
+    >
       <svg className="h-full w-full" viewBox="0 0 100 1000" preserveAspectRatio="none">
         <path
           ref={pathRef}
@@ -139,7 +177,7 @@ export function LedBackground() {
           style={{
             stroke: 'var(--led-color, #00e5ff)',
             filter: 'drop-shadow(0 0 2px var(--led-glow, rgba(0, 229, 255, 0.56)))',
-            willChange: 'stroke-dashoffset',
+            willChange: 'stroke-dashoffset, opacity',
             transition: 'filter 180ms var(--ease-out), stroke 180ms var(--ease-out)',
           }}
         />

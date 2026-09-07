@@ -1,29 +1,18 @@
 import { homeCards, homeStats } from '@/lib/site-content';
 import { Container } from '@/components/ui/container';
 import { HomeHero } from '@/components/sections/home-hero';
+import { ContactForm } from '@/components/sections/contact-form';
 import { LogoTicker } from '@/components/sections/logo-ticker';
 import { ThreeCardGrid } from '@/components/sections/three-card-grid';
 import { StatStrip } from '@/components/sections/stat-strip';
 import { MotionSection } from '@/components/motion/motion-system';
+import { BodyCopy, DisplayTitle, Eyebrow } from '@/components/ui/typography';
 import { CaseStudySection, FaqSection, FunnelSection, TestimonialSection } from '@/components/sections/cro-sections';
-import { EntitySheet } from '@/components/seo/entity-sheet';
-import { companyEntity, siteMeta } from '@/lib/site-content';
 
 export function HomePage() {
   return (
     <main className="ds-page">
       <HomeHero />
-      <MotionSection className="ds-section-tight">
-        <Container>
-          <EntitySheet
-            name={companyEntity.name}
-            type="Organization"
-            definition={companyEntity.description}
-            url={companyEntity.url}
-            properties={{ Founded: companyEntity.foundingDate, Languages: (companyEntity.availableLanguages || []).join(', ') }}
-          />
-        </Container>
-      </MotionSection>
       <LogoTicker />
 
       <MotionSection className="ds-section-tight">
@@ -46,6 +35,25 @@ export function HomePage() {
 
       <MotionSection className="ds-section-tight">
         <ThreeCardGrid cards={homeCards} />
+      </MotionSection>
+
+      <MotionSection id="contact" className="ds-section">
+        <Container>
+          <div className="ds-stack max-w-4xl" style={{ ['--stack-gap' as string]: '1rem' }}>
+            <Eyebrow as="p">Kontakt / Project Brief</Eyebrow>
+            <DisplayTitle as="h2" className="whitespace-pre-line">
+              {`Projekt starten.
+Schnell, klar, präzise.`}
+            </DisplayTitle>
+            <BodyCopy className="max-w-2xl text-[1.02rem] md:text-lg">
+              Das Formular ist hier direkt eingebettet, damit der Einstieg ohne Umweg möglich ist.
+            </BodyCopy>
+          </div>
+
+          <div className="mt-10 max-w-5xl">
+            <ContactForm />
+          </div>
+        </Container>
       </MotionSection>
 
       <CaseStudySection />

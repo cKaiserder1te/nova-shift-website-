@@ -50,7 +50,7 @@ export default function ContactPage() {
       <FaqJsonLd pageUrl={pageUrl} />
 
       <main className="ds-page">
-        <section className="pt-28 pb-16 md:pt-36 md:pb-24">
+        <section id="contact" className="pt-28 pb-16 md:pt-36 md:pb-24">
           <Container>
             <div className="ds-split-grid">
               <div className="ds-stack" style={{ ['--stack-gap' as string]: '1.5rem' }}>

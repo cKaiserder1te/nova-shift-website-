@@ -1,12 +1,11 @@
 import type { MetadataRoute } from 'next';
-import { routes } from '@/lib/routes';
-import { siteMeta } from '@/lib/site-content';
+import { flatSitemapEntries } from '@/lib/sitemap-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map((route) => ({
-    url: new URL(route.href, siteMeta.url).toString(),
-    lastModified: new Date(),
-    changeFrequency: route.href === '/' ? 'daily' : 'weekly',
-    priority: route.href === '/' ? 1.0 : 0.8,
+  return flatSitemapEntries.map((entry) => ({
+    url: entry.loc,
+    lastModified: new Date(entry.lastmod),
+    changeFrequency: entry.changefreq,
+    priority: entry.priority,
   }));
 }

@@ -1,3 +1,5 @@
+import { z } from 'zod';
+
 export const contactServices = [
   { id: 'advertising', label: 'Advertising', desc: 'Paid Social, Search & Scaling' },
   { id: 'cast', label: 'Cast & UGC', desc: 'Creators & Performance Content' },
@@ -7,19 +9,28 @@ export const contactServices = [
 ] as const;
 
 export const contactBudgets = ['< 5k', '5k - 15k', '15k - 50k', '50k+'] as const;
-
 export type ContactServiceId = (typeof contactServices)[number]['id'];
+export const contactServiceIds = contactServices.map((service) => service.id) as [
+  ContactServiceId,
+  ...ContactServiceId[],
+];
+
 export type ContactBudget = (typeof contactBudgets)[number];
 
-export type ContactSubmissionInput = {
-  service: string;
-  budget: string;
-  name: string;
-  email: string;
-  project: string;
-  website?: string;
-  sourcePath?: string;
-};
+export const contactSubmissionSchema = z.object({
+  service: z.enum(contactServiceIds),
+  budget: z.enum(contactBudgets),
+  name: z.string().trim().min(2, 'Bitte gib einen gültigen Namen an.').max(100, 'Bitte überprüfe deine Eingaben.'),
+  email: z.string().trim().email('Bitte gib eine gültige E-Mail-Adresse an.').max(254, 'Bitte überprüfe deine Eingaben.'),
+  project: z.string().trim().max(5000, 'Bitte überprüfe deine Eingaben.').default(''),
+  privacyAccepted: z.boolean().refine((value) => value, {
+    message: 'Bitte bestätige die Datenschutzerklärung.',
+  }),
+  website: z.string().trim().max(0, 'Ungültige Anfrage.').default(''),
+  sourcePath: z.string().trim().max(2048, 'Bitte überprüfe deine Eingaben.').default(''),
+}).strict();
+
+export type ContactSubmissionInput = z.infer<typeof contactSubmissionSchema>;
 
 export type ContactSubmissionRecord = {
   id: string;
@@ -42,59 +53,16 @@ export const contactBudgetLabels = Object.fromEntries(contactBudgets.map((budget
 export function parseContactSubmission(value: unknown):
   | { ok: true; data: ContactSubmissionInput }
   | { ok: false; errors: string[] } {
-  if (!value || typeof value !== 'object' || Array.isArray(value)) {
-    return { ok: false, errors: ['Ungültige Anfrage.'] };
+  const result = contactSubmissionSchema.safeParse(value);
+
+  if (!result.success) {
+    return {
+      ok: false,
+      errors: result.error.issues.map((issue) => issue.message),
+    };
   }
 
-  const data = value as Partial<Record<keyof ContactSubmissionInput, unknown>>;
-  const errors: string[] = [];
-
-  const service = typeof data.service === 'string' ? data.service.trim() : '';
-  const budget = typeof data.budget === 'string' ? data.budget.trim() : '';
-  const name = typeof data.name === 'string' ? data.name.trim() : '';
-  const email = typeof data.email === 'string' ? data.email.trim() : '';
-  const project = typeof data.project === 'string' ? data.project.trim() : '';
-  const website = typeof data.website === 'string' ? data.website.trim() : '';
-  const sourcePath = typeof data.sourcePath === 'string' ? data.sourcePath.trim() : '';
-
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!contactServices.some((item) => item.id === service)) {
-    errors.push('Bitte wähle einen gültigen Service aus.');
-  }
-
-  if (!contactBudgets.includes(budget as ContactBudget)) {
-    errors.push('Bitte wähle einen gültigen Budgetrahmen aus.');
-  }
-
-  if (name.length < 2) {
-    errors.push('Bitte gib einen gültigen Namen an.');
-  }
-
-  if (!emailPattern.test(email)) {
-    errors.push('Bitte gib eine gültige E-Mail-Adresse an.');
-  }
-
-  if (website.length > 0) {
-    errors.push('Ungültige Anfrage.');
-  }
-
-  if (errors.length > 0) {
-    return { ok: false, errors };
-  }
-
-  return {
-    ok: true,
-    data: {
-      service,
-      budget,
-      name,
-      email,
-      project,
-      website,
-      sourcePath,
-    },
-  };
+  return { ok: true, data: result.data };
 }
 
 export function escapeHtml(value: string) {
