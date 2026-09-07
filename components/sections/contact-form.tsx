@@ -1,7 +1,8 @@
 "use client";
 
 import Link from 'next/link';
-import { useState, useCallback, useMemo, type FormEvent } from 'react';
+import { useState, useCallback, useMemo, useEffect, type FormEvent } from 'react';
+import { usePathname } from 'next/navigation';
 import { companyEntity } from '@/lib/site-content';
 import { contactSubmissionSchema } from '@/lib/contact-form';
 import { EnterpriseButton } from '@/components/ui/enterprise-button';
@@ -18,6 +19,7 @@ const services = [
 const budgets = ['< 5k', '5k - 15k', '15k - 50k', '50k+'];
 
 export function ContactForm() {
+  const pathname = usePathname();
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -29,6 +31,7 @@ export function ContactForm() {
     project: '',
     privacyAccepted: false,
     website: '',
+    sourcePath: '',
   });
 
   const handleNext = useCallback(() => setStep((prev) => Math.min(prev + 1, 4)), [setStep]);
@@ -37,6 +40,10 @@ export function ContactForm() {
   const setField = useCallback((field: keyof typeof formData, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   }, []);
+
+  useEffect(() => {
+    setField('sourcePath', pathname);
+  }, [pathname, setField]);
 
   const handleSelect = useCallback((field: 'service' | 'budget', value: string) => {
     setField(field, value);

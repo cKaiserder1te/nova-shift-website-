@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: validation.error.issues[0]?.message || 'Bitte überprüfe deine Eingaben.' }, { status: 400 });
   }
 
-  const { service, budget, name, email, project } = validation.data;
+  const { service, budget, name, email, project, sourcePath } = validation.data;
 
   let supabase;
   let requestId: string;
@@ -35,6 +35,7 @@ export async function POST(request: Request) {
         name,
         email,
         project,
+        source_path: sourcePath,
         privacy_accepted: true,
         email_status: 'pending',
       })
@@ -57,8 +58,8 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const contactEmail = process.env.CONTACT_EMAIL;
-  const fromEmail = process.env.CONTACT_FROM_EMAIL;
+  const contactEmail = process.env.CONTACT_TO_EMAIL ?? process.env.CONTACT_EMAIL;
+  const fromEmail = process.env.RESEND_FROM_EMAIL ?? process.env.CONTACT_FROM_EMAIL;
 
   if (!apiKey || !contactEmail || !fromEmail) {
     await supabase
