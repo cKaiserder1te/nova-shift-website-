@@ -52,26 +52,26 @@ export default function ContactPage() {
       <main className="ds-page">
         <section id="contact" className="pt-28 pb-16 md:pt-36 md:pb-24">
           <Container>
-            <div className="ds-split-grid">
-              <div className="ds-stack" style={{ ['--stack-gap' as string]: '1.5rem' }}>
-                <Eyebrow as="p">Kontakt / Project Brief</Eyebrow>
-                <DisplayTitle as="h1" className="max-w-3xl whitespace-pre-line">
-                  {`Projekt starten.\nSchnell, klar, präzise.`}
-                </DisplayTitle>
-                <BodyCopy className="max-w-2xl text-[1.02rem] md:text-lg">
-                  Wir antworten mit einer klaren nächsten Aktion. Kein unstrukturierter Ping-Pong, sondern ein Setup für den Start.
-                </BodyCopy>
-                <ShortAnswer text="Wir melden uns werktags innerhalb von 24 Stunden mit der nächsten sinnvollen Aktion." />
-                <div className="ds-cluster pt-2">
-                  <EnterpriseButtonLink href="/#services" variant="secondary">
-                    Leistungen ansehen
-                  </EnterpriseButtonLink>
-                  <EnterpriseButtonLink href="/advertising" variant="ghost">
-                    Beispiel ansehen
-                  </EnterpriseButtonLink>
-                </div>
+            <div className="ds-stack max-w-4xl" style={{ ['--stack-gap' as string]: '1.5rem' }}>
+              <Eyebrow as="p">Kontakt / Project Brief</Eyebrow>
+              <DisplayTitle as="h1" className="max-w-3xl whitespace-pre-line">
+                {`Projekt starten.\nSchnell, klar, präzise.`}
+              </DisplayTitle>
+              <BodyCopy className="max-w-2xl text-[1.02rem] md:text-lg">
+                Wir antworten mit einer klaren nächsten Aktion. Kein unstrukturierter Ping-Pong, sondern ein Setup für den Start.
+              </BodyCopy>
+              <ShortAnswer text="Wir melden uns werktags innerhalb von 24 Stunden mit der nächsten sinnvollen Aktion." />
+              <div className="ds-cluster pt-2">
+                <EnterpriseButtonLink href="/#services" variant="secondary">
+                  Leistungen ansehen
+                </EnterpriseButtonLink>
+                <EnterpriseButtonLink href="/advertising" variant="ghost">
+                  Beispiel ansehen
+                </EnterpriseButtonLink>
               </div>
+            </div>
 
+            <div className="mt-10 max-w-5xl">
               <ContactForm />
             </div>
           </Container>

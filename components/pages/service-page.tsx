@@ -26,6 +26,14 @@ export function ServicePage({ page }: ServicePageProps) {
         </Container>
       </MotionSection>
 
+      {page.slug === 'contact' ? (
+        <MotionSection className="py-10 md:py-16">
+          <Container>
+            <ContactForm />
+          </Container>
+        </MotionSection>
+      ) : null}
+
       {page.slug === 'about' ? (
         <MotionSection className="ds-section-tight">
           <Container>
@@ -99,17 +107,6 @@ export function ServicePage({ page }: ServicePageProps) {
       <TestimonialSection />
       <FaqSection />
       <FunnelSection />
-
-      {page.slug === 'contact' ? (
-        <MotionSection className="py-10 md:py-16">
-          <Container>
-            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-              <SectionHeading label={page.extra?.label ?? page.intro.label} title={page.extra?.title ?? page.intro.title} body={page.extra?.body ?? page.intro.body} />
-              <ContactForm />
-            </div>
-          </Container>
-        </MotionSection>
-      ) : null}
     </main>
   );
 }
